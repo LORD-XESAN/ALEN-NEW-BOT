@@ -12,7 +12,6 @@ module.exports.config = {
   version: "6.9.0",
   hasPermission: 2,
   credits: "TOHI-BOT-HUB",
-  usePrefix: true,
   prefix: true,
   description: "Convert code into link",
   commandCategory: "BOT ADMIN",
