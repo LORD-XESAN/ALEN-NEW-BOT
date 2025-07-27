@@ -13,7 +13,6 @@ const baseApiUrl = async () => {
    credits: "TOHI-BOT-HUB",
    cooldowns: 5,
    hasPermission: 0,
-   usePrefix: true,
    prefix: true,
    description: "Get data from Images",
    commandCategory: "image",
