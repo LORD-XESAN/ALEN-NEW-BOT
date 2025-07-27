@@ -4,7 +4,6 @@ module.exports.config = {
   hasPermssion: 0,
   credits: "TOHI-BOT-HUB + CopilotX",
   description: "Mention/reply করে কাউকে roast করো! (owner কে roast করা যাবে না!)",
-  usePrefix: true,
   commandCategory: "fun",
   usages: "[@mention/reply]",
   cooldowns: 4
