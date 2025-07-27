@@ -57,9 +57,9 @@ module.exports.handleEvent = async function ({ api, event }) {
             fs.writeFileSync(path, Buffer.from(response.data, "binary"));
 
             await api.sendMessage({
-                body: `╔════✨𝗜𝗺𝗮𝗴𝗲 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱✨════╗
+                body: ` ╔═══✨𝗜𝗺𝗮𝗴𝗲 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱✨═══╗
                        📷 Downloaded from Imgur! 🌟
-                       ╚════💫AI Assistant💫════╝`,
+                         ╚════💫AI Assistant💫════╝`,
                 attachment: fs.createReadStream(path)
             }, event.threadID, () => {
                 if (fs.existsSync(path)) {
@@ -79,10 +79,10 @@ module.exports.handleEvent = async function ({ api, event }) {
         if (!bb.result) {
             api.setMessageReaction("❌", event.messageID, (err) => {}, true);
             return api.sendMessage(
-                `╔════🚫𝗣𝗿𝗼𝗰𝗲𝘀𝘀𝗶𝗻𝗴 𝗙𝗮𝗶𝗹𝗲𝗱🚫════╗
-                       ⚠ Failed to fetch media data! 😔
-                       🔄 Please check the URL and try again.
-                       ╚════💫AI Assistant💫════╝`,
+                `  ╔═══🚫𝗣𝗿𝗼𝗰𝗲𝘀𝘀𝗶𝗻𝗴 𝗙𝗮𝗶𝗹𝗲𝗱🚫═══╗
+    ⚠ Failed to fetch media data! 😔
+ 🔄 Please check the URL and try again.
+     ╚════💫AI Assistant💫════╝`,
                 event.threadID, event.messageID
             );
         }
@@ -105,7 +105,7 @@ module.exports.handleEvent = async function ({ api, event }) {
             body: `╔════✨𝗠𝗲𝗱𝗶𝗮 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱✨════╗
                ${cp}
           🔗 Download URL: ${shortUrl}
-                   ╚════💫AI Assistant💫════╝`,
+                      ╚════💫AI Assistant💫════╝`,
             attachment: fs.createReadStream(path)
         }, event.threadID, () => {
             if (fs.existsSync(path)) {
