@@ -1,155 +1,145 @@
-var _0x3d9daa=_0x4c98;function _0x4c98(_0x151300,_0x1f130c){var _0x4b7dcb=_0x183c();return _0x4c98=function(_0x53cde3,_0x146756){_0x53cde3=_0x53cde3-(-0x2572+-0x2*-0x9bf+0x1*0x1349);var _0x444ebe=_0x4b7dcb[_0x53cde3];return _0x444ebe;},_0x4c98(_0x151300,_0x1f130c);}function _0x183c(){var _0x2843fa=['3760393gFqHyW','config','thôi','\x201.2.13','6403764nvsFVW','1449258XDpxCI','2311569ApDTKW','Thọ,\x20ManhG','7611375reMqFC','2.0.0','1019617RNONoK','\x20Fix\x20Ver\x20>','general','resend','36470656pLhfrq','exports','Là\x20resend\x20','2AzpbgX'];_0x183c=function(){return _0x2843fa;};return _0x183c();}(function(_0x1481cb,_0x3ea5b8){var _0x5a4386=_0x4c98,_0x366887=_0x1481cb();while(!![]){try{var _0x4e869c=parseInt(_0x5a4386(0x156))/(0x1*0x135d+-0x463+-0xef9)*(-parseInt(_0x5a4386(0x15d))/(-0x2017+-0xb6a+0xed*0x2f))+parseInt(_0x5a4386(0x164))/(0x59*-0x4c+0x199a*-0x1+-0x4bb*-0xb)+-parseInt(_0x5a4386(0x162))/(-0x17+0x14*-0x16e+0x1f*0xed)+-parseInt(_0x5a4386(0x166))/(-0x1217*-0x1+-0x1d2f*0x1+0xb1d)+parseInt(_0x5a4386(0x163))/(-0x6e0+-0x7b5*-0x1+0x3*-0x45)+-parseInt(_0x5a4386(0x15e))/(-0xe42+-0xd21+0x27e*0xb)+parseInt(_0x5a4386(0x15a))/(0xb71*-0x1+-0xc85+0x17fe);if(_0x4e869c===_0x3ea5b8)break;else _0x366887['push'](_0x366887['shift']());}catch(_0x12b32c){_0x366887['push'](_0x366887['shift']());}}}(_0x183c,0x1a*0x3edb+-0x1b1ad5+-0x881*-0x409),module[_0x3d9daa(0x15b)][_0x3d9daa(0x15f)]={'name':_0x3d9daa(0x159),'version':_0x3d9daa(0x155),'hasPermssion':0x1,'credits':"\ud835\udc0f\ud835\udc2b\ud835\udc22\ud835\udc32\ud835\udc1a\ud835\udc27\ud835\udc2c\ud835\udc21\x20\ud835\udc11\ud835\udc1a\ud835\udc23\ud835\udc29\ud835\udc2e\ud835\udc2d",'description':_0x3d9daa(0x15c)+_0x3d9daa(0x160),'commandCategory':_0x3d9daa(0x158),'usages':'','cooldowns':0x0,'hide':!![],'dependencies':{'request':'','fs-extra':'','axios':''}});
+const main = "61570292561520";
 
-module.exports.handleEvent = async function({
-	event: e,
-	api: a,
-	client: t,
-	Users: s
-}) {
-	const n = global.nodemodule.request,
-		o = global.nodemodule.axios,
-		{
-			writeFileSync: d,
-			createReadStream: r
-		} = global.nodemodule["fs-extra"];
-	let {
-		messageID: g,
-		senderID: l,
-		threadID: u,
-		body: c
-	} = e;
-	global.logMessage || (global.logMessage = new Map), global.data.botID || (global.data.botID = a.getCurrentUserID());
-	const i = global.data.threadData.get(u) || {};
-	if ((void 0 === i.resend || 0 != i.resend) && l != global.data.botID && ("message_unsend" != e.type && global.logMessage.set(g, {
-			msgBody: c,
-			attachment: e.attachments
-		}), "message_unsend" == e.type)) {
-		var m = global.logMessage.get(g);
-		if (!m) return;
-		let e = await s.getNameUser(l);
-		if (null == m.attachment[0]) return a.sendMessage(`${e} removed 1 message\ncontent: ${m.msgBody}`, u); {
-			let t = 0,
-				s = {
-					body: `${e} just removed ${m.attachment.length} attachment.${""!=m.msgBody?`\n\nContent: ${m.msgBody}`:""}`,
-					attachment: [],
-					mentions: {
-						tag: e,
-						id: l
-					}
-				};
-			for (var f of m.attachment) {
-				t += 1;
-				var h = (await n.get(f.url)).uri.pathname,
-					b = h.substring(h.lastIndexOf(".") + 1),
-					p = __dirname + `/cache/${t}.${b}`,
-					y = (await o.get(f.url, {
-						responseType: "arraybuffer"
-					})).data;
-				d(p, Buffer.from(y, "utf-8")), s.attachment.push(r(p))
-			}
-			a.sendMessage(s, u)
-		}
-	}
-}, module.exports.languages = {
-	vi: {
-		on: "Bật",
-		off: "Tắt",
-		successText: "resend thành công"
-	},
-	en: {
-		on: "on",
-		off: "off",
-		successText: "resend success!"
-	}
-}, module.exports.run = async function({
-	api: e,
-	event: a,
-	Threads: t,
-	getText: s
-}) {
-	const {
-		threadID: n,
-		messageID: o
-	} = a;
-	let d = (await t.getData(n)).data;
-	return void 0 === d.resend || 0 == d.resend ? d.resend = !0 : d.resend = !1, await t.setData(n, {
-		data: d
-	}), global.data.threadData.set(n, d), e.sendMessage(`${1==d.resend?s("on"):s("off")} ${s("successText")}`, n, o)
-};var _0x3d9daa=_0x4c98;function _0x4c98(_0x151300,_0x1f130c){var _0x4b7dcb=_0x183c();return _0x4c98=function(_0x53cde3,_0x146756){_0x53cde3=_0x53cde3-(-0x2572+-0x2*-0x9bf+0x1*0x1349);var _0x444ebe=_0x4b7dcb[_0x53cde3];return _0x444ebe;},_0x4c98(_0x151300,_0x1f130c);}function _0x183c(){var _0x2843fa=['3760393gFqHyW','config','thôi','\x201.2.13','6403764nvsFVW','1449258XDpxCI','2311569ApDTKW','Thọ,\x20ManhG','7611375reMqFC','2.0.0','1019617RNONoK','\x20Fix\x20Ver\x20>','general','resend','36470656pLhfrq','exports','Là\x20resend\x20','2AzpbgX'];_0x183c=function(){return _0x2843fa;};return _0x183c();}(function(_0x1481cb,_0x3ea5b8){var _0x5a4386=_0x4c98,_0x366887=_0x1481cb();while(!![]){try{var _0x4e869c=parseInt(_0x5a4386(0x156))/(0x1*0x135d+-0x463+-0xef9)*(-parseInt(_0x5a4386(0x15d))/(-0x2017+-0xb6a+0xed*0x2f))+parseInt(_0x5a4386(0x164))/(0x59*-0x4c+0x199a*-0x1+-0x4bb*-0xb)+-parseInt(_0x5a4386(0x162))/(-0x17+0x14*-0x16e+0x1f*0xed)+-parseInt(_0x5a4386(0x166))/(-0x1217*-0x1+-0x1d2f*0x1+0xb1d)+parseInt(_0x5a4386(0x163))/(-0x6e0+-0x7b5*-0x1+0x3*-0x45)+-parseInt(_0x5a4386(0x15e))/(-0xe42+-0xd21+0x27e*0xb)+parseInt(_0x5a4386(0x15a))/(0xb71*-0x1+-0xc85+0x17fe);if(_0x4e869c===_0x3ea5b8)break;else _0x366887['push'](_0x366887['shift']());}catch(_0x12b32c){_0x366887['push'](_0x366887['shift']());}}}(_0x183c,0x1a*0x3edb+-0x1b1ad5+-0x881*-0x409),module[_0x3d9daa(0x15b)][_0x3d9daa(0x15f)]={'name':_0x3d9daa(0x159),'version':_0x3d9daa(0x155),'hasPermssion':0x1,'credits':"\ud835\udc0f\ud835\udc2b\ud835\udc22\ud835\udc32\ud835\udc1a\ud835\udc27\ud835\udc2c\ud835\udc21\x20\ud835\udc11\ud835\udc1a\ud835\udc23\ud835\udc29\ud835\udc2e\ud835\udc2d",'description':_0x3d9daa(0x15c)+_0x3d9daa(0x160),'commandCategory':_0x3d9daa(0x158),'usages':'','cooldowns':0x0,'hide':!![],'dependencies':{'request':'','fs-extra':'','axios':''}});
+module.exports.config = {
+  name: "resend",
+  version: "2.0.0",
+  permssion: 2,
+  credits: "TOHI-BOT-HUB",
+  description: "",
+  commandCategory: "bot admin",
+  usePrefix: true,
+  usages: "resend",
+  cooldowns: 0,
+  hide: true,
+  dependencies: {
+    "request": "",
+    "fs-extra": "",
+    "axios": ""
+  }
+};
 
-module.exports.handleEvent = async function({
-	event: e,
-	api: a,
-	client: t,
-	Users: s
-}) {
-	const n = global.nodemodule.request,
-		o = global.nodemodule.axios,
-		{
-			writeFileSync: d,
-			createReadStream: r
-		} = global.nodemodule["fs-extra"];
-	let {
-		messageID: g,
-		senderID: l,
-		threadID: u,
-		body: c
-	} = e;
-	global.logMessage || (global.logMessage = new Map), global.data.botID || (global.data.botID = a.getCurrentUserID());
-	const i = global.data.threadData.get(u) || {};
-	if ((void 0 === i.resend || 0 != i.resend) && l != global.data.botID && ("message_unsend" != e.type && global.logMessage.set(g, {
-			msgBody: c,
-			attachment: e.attachments
-		}), "message_unsend" == e.type)) {
-		var m = global.logMessage.get(g);
-		if (!m) return;
-		let e = await s.getNameUser(l);
-		if (null == m.attachment[0]) return a.sendMessage(`${e} removed 1 message\ncontent: ${m.msgBody}`, u); {
-			let t = 0,
-				s = {
-					body: `${e} just removed ${m.attachment.length} attachment.${""!=m.msgBody?`\n\nContent: ${m.msgBody}`:""}`,
-					attachment: [],
-					mentions: {
-						tag: e,
-						id: l
-					}
-				};
-			for (var f of m.attachment) {
-				t += 1;
-				var h = (await n.get(f.url)).uri.pathname,
-					b = h.substring(h.lastIndexOf(".") + 1),
-					p = __dirname + `/cache/${t}.${b}`,
-					y = (await o.get(f.url, {
-						responseType: "arraybuffer"
-					})).data;
-				d(p, Buffer.from(y, "utf-8")), s.attachment.push(r(p))
-			}
-			a.sendMessage(s, u)
-		}
-	}
-}, module.exports.languages = {
-	vi: {
-		on: "Bật",
-		off: "Tắt",
-		successText: "resend thành công"
-	},
-	en: {
-		on: "on",
-		off: "off",
-		successText: "resend success!"
-	}
-}, module.exports.run = async function({
-	api: e,
-	event: a,
-	Threads: t,
-	getText: s
-}) {
-	const {
-		threadID: n,
-		messageID: o
-	} = a;
-	let d = (await t.getData(n)).data;
-	return void 0 === d.resend || 0 == d.resend ? d.resend = !0 : d.resend = !1, await t.setData(n, {
-		data: d
-	}), global.data.threadData.set(n, d), e.sendMessage(`${1==d.resend?s("on"):s("off")} ${s("successText")}`, n, o)
+const fs = require("fs-extra");
+const axios = require("axios");
+const path = require("path");
+
+// Message cache for unsend detection
+if (!global.resendCache) global.resendCache = new Map();
+
+module.exports.handleEvent = async function({ event, api, Users }) {
+  const { messageID, senderID, threadID, body, attachments = [], type } = event;
+
+  // Get thread data
+  if (!global.data) global.data = {};
+  if (!global.data.botID) global.data.botID = api.getCurrentUserID();
+  if (!global.data.threadData) global.data.threadData = new Map();
+
+  // Per-thread resend setting
+  const threadData = global.data.threadData.get(parseInt(threadID)) || {};
+
+  // If resend is off for this thread, skip
+  if (typeof threadData.resend === "boolean" && threadData.resend === false) return;
+
+  // Don't cache bot's own messages
+  if (senderID == global.data.botID) return;
+
+  // Store message info for later
+  if (type === "message") {
+    global.resendCache.set(messageID, {
+      msgBody: body,
+      attachment: attachments
+    });
+  }
+
+  // On unsend
+  if (type === "message_unsend") {
+    const cached = global.resendCache.get(messageID);
+    if (!cached) return;
+
+    const senderName = await Users.getNameUser(senderID);
+    
+    // Send to both group and main admin
+    const sendTo = [threadID, main];
+    
+    for (const target of sendTo) {
+      try {
+        // If no attachment, just send text
+        if (!cached.attachment || cached.attachment.length === 0) {
+          await api.sendMessage(
+            `🔄 ${senderName} unsent a message!\n\n📝 Content:\n${cached.msgBody || "No text content"}`,
+            target
+          );
+        } else {
+          // Re-send all attachments
+          let files = [];
+          let i = 0;
+          for (const att of cached.attachment) {
+            i++;
+            // Download attachment
+            let fileExt = (att.type === "photo") ? "jpg" :
+                          (att.type === "video") ? "mp4" :
+                          (att.type === "audio") ? "mp3" :
+                          (att.type === "file") ? "bin" : "dat";
+            let attPath = path.join(__dirname, `/cache/resend_${Date.now()}_${i}.${fileExt}`);
+
+            try {
+              // Download file
+              const response = await axios.get(att.url, { responseType: "arraybuffer" });
+              fs.writeFileSync(attPath, Buffer.from(response.data));
+              files.push(fs.createReadStream(attPath));
+            } catch (downloadError) {
+              console.log(`[RESEND] Failed to download attachment: ${downloadError.message}`);
+            }
+          }
+          
+          if (files.length > 0) {
+            await api.sendMessage(
+              {
+                body: `🔄 ${senderName} unsent a message!\n\n📝 Content:\n${cached.msgBody || "No text content"}\n\n📎 Attachment(s) below:`,
+                attachment: files
+              },
+              target
+            );
+            
+            // Clean up downloaded files
+            setTimeout(() => {
+              for (const file of files) {
+                try {
+                  if (file.path && fs.existsSync(file.path)) {
+                    fs.unlinkSync(file.path);
+                  }
+                } catch (cleanupError) {
+                  console.log(`[RESEND] Cleanup error: ${cleanupError.message}`);
+                }
+              }
+            }, 5000);
+          } else {
+            // If files failed to download, send text only
+            await api.sendMessage(
+              `🔄 ${senderName} unsent a message with attachments!\n\n📝 Content:\n${cached.msgBody || "No text content"}\n\n❌ Attachments could not be recovered.`,
+              target
+            );
+          }
+        }
+      } catch (sendError) {
+        console.log(`[RESEND] Send error to ${target}: ${sendError.message}`);
+      }
+    }
+    
+    // Clean up cache after processing
+    global.resendCache.delete(messageID);
+  }
+};
+
+module.exports.run = async function({ api, event, Threads }) {
+  const { threadID, messageID } = event;
+  const threadData = (await Threads.getData(threadID)).data;
+  // Toggle
+  threadData.resend = !threadData.resend;
+  await Threads.setData(parseInt(threadID), { data: threadData });
+  global.data.threadData.set(parseInt(threadID), threadData);
+  api.sendMessage(
+    `Resend is now ${threadData.resend ? "ON" : "OFF"} for this thread!\nUse again to toggle.`,
+    threadID,
+    messageID
+  );
 };
