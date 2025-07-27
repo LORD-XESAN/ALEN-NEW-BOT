@@ -13,7 +13,6 @@ const baseApiUrl = async () => {
   credits: "TOHI-BOT-HUB",
   hasPermission: 0,
   commandCategory: "utility",
-  usePrefix: true,
   Prefix: true,
   description: "Convert mp4/mp3/image to link",
   cooldowns: 5,
