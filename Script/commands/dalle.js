@@ -10,7 +10,6 @@ module.exports = {
     version: "1.1",
     credits: "TOHI-BOT-HUB",
     hasPermssion: 0,
-    usePrefix: true,
     prefix: true,
     description: "🎨 DALL·E 3 AI দিয়ে কল্পনার ছবি বানান!",
     commandCategory: "AI PHOTO",
