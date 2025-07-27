@@ -5,7 +5,6 @@ module.exports.config = {
 	permission: 0,
 	credits: "TOHI-BOT-HUB",
 	description: "Get a random joke in English or Bengali to brighten your day",
-	usePrefix: true,
 	commandCategory: "fun",
 	usages: "joke",
 	cooldowns: 3
