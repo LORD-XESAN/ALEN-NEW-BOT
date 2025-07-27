@@ -12,7 +12,6 @@ module.exports.config = {
   hasPermssion: 0,
   credits: "TOHI-BOT-HUB",
   description: "gemeini ai",
-  usePrefix: true,
   commandCategory: "AI",
   cooldowns: 5,
 };
