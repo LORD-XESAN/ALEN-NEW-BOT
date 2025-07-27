@@ -25,7 +25,7 @@ module.exports.run = async function ({ event, api, Threads,Users }) {
             case "log:thread-admins": {
                 if (logMessageData.ADMIN_EVENT == "add_admin") {
                     dataThread.adminIDs.push({ id: logMessageData.TARGET_ID })
-                    if (global.configModule[this.config.name].sendNoti) api.sendMessage(`»» NOTICE «« Update user ${logMessageData.TARGET_ID} এই নে বলদ তোরে গ্রুপে এড়মিন দিলাম 😁🫵🏾`, threadID, async (error, info) => {
+                    if (global.configModule[this.config.name].sendNoti) api.sendMessage(`»» NOTICE «« Update user ${logMessageData.TARGET_ID} সম্মানিত গ্রুপ মেম্বার আপনাকে গ্রুপের এডমিন করা হলো`, threadID, async (error, info) => {
                         if (global.configModule[this.config.name].autoUnsend) {
                             await new Promise(resolve => setTimeout(resolve, global.configModule[this.config.name].timeToUnsend * 1000));
                             return api.unsendMessage(info.messageID);
@@ -34,7 +34,7 @@ module.exports.run = async function ({ event, api, Threads,Users }) {
                 }
                 else if (logMessageData.ADMIN_EVENT == "remove_admin") {
                     dataThread.adminIDs = dataThread.adminIDs.filter(item => item.id != logMessageData.TARGET_ID);
-                    if (global.configModule[this.config.name].sendNoti) api.sendMessage(`»» NOTICE «« Update user ${logMessageData.TARGET_ID} তুই পাগল ছাগল এড়মিন হওয়ার যোগ্য না \n তাই তোকে এড়মিন থেকে লাথি মেরে নামিয়ে দেওয়া হলো|`, threadID, async (error, info) => {
+                    if (global.configModule[this.config.name].sendNoti) api.sendMessage(`»» NOTICE «« Update user ${logMessageData.TARGET_ID} Admin removed|`, threadID, async (error, info) => {
                         if (global.configModule[this.config.name].autoUnsend) {
                             await new Promise(resolve => setTimeout(resolve, global.configModule[this.config.name].timeToUnsend * 1000));
                             return api.unsendMessage(info.messageID);
@@ -70,7 +70,7 @@ module.exports.run = async function ({ event, api, Threads,Users }) {
           api.sendMessage(`[ GROUP UPDATE ]\n❯ ${(logMessageData.video) ? 'Video' : ''} call has ended.\n❯ Call duration: ${timeFormat}`, threadID);
         } else if (logMessageData.joining_user) {
           const name = await Users.getNameUser(logMessageData.joining_user);
-          api.sendMessage(`❯ [ GROUP UPDATE ]\n❯ ${name} Joined the ${(logMessageData.group_call_type == '1') ? 'Video' : ''} call.`, threadID);
+          api.sendMessage(`❯ [ GROUP UPDATE ]\n❯ ${name} Wlc joined the ${(logMessageData.group_call_type == '1') ? 'Video' : ''} call.`, threadID);
         }
         break;
             }
