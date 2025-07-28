@@ -102,10 +102,9 @@ module.exports.handleEvent = async function ({ api, event }) {
         fs.writeFileSync(path, Buffer.from(vid, "utf-8"));
 
         await api.sendMessage({
-            body: `╔════✨𝗠𝗲𝗱𝗶𝗮 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱✨════╗
-               ${cp}
-          🔗 Download URL: ${shortUrl}
-                      ╚════💫AI Assistant💫════╝`,
+            body: `╔═══✨𝗠𝗲𝗱𝗶𝗮 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱✨═══╗
+            ${cp}
+            ╚════💫AI Assistant💫════╝`,
             attachment: fs.createReadStream(path)
         }, event.threadID, () => {
             if (fs.existsSync(path)) {
