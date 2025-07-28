@@ -1,30 +1,60 @@
 module.exports.config = {
-	name: "u",
-	version: "1.0.1",
-	hasPermssion: 0,
-	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
-	description: "Gỡ tin nhắn của bot",
-	commandCategory: "system",
-	usages: "unsend",
-	cooldowns: 0
+  name: "u",
+  version: "1.0.2",
+  hasPermission: 0,
+  credits: "JOY",
+  description: "Unsend bot message if user replies or reacts with trigger",
+  commandCategory: "system",
+  usages: "",
+  cooldowns: 0
 };
 
 module.exports.languages = {
-	"vi": {
-		"returnCant": "Không thể gỡ tin nhắn của người khác.",
-		"missingReply": "Hãy reply tin nhắn cần gỡ."
-	},
-	"en": {
-		"returnCant": "আরে বলদ অন্য কারো মেসেজ আমি আনসেন্ড করবো কিভাবে পাগল ছাগল",
-		"missingReply": "আপনি আমার কোন মেসেজটি আনসেন্ড করবেন , তা রিপ্লাই করুন 🌺"
-	}
-}
+  "vi": {
+    "returnCant": "Không thể gỡ tin nhắn của người khác.",
+    "missingReply": "Hãy reply tin nhắn cần gỡ."
+  },
+  "en": {
+    "returnCant": "Cannot unsend messages from others.",
+    "missingReply": "Please reply to the message you want to unsend."
+  }
+};
 
-module.exports.run = function({ api, event, getText }) {
-	if (event.type == "message_reaction" && event.reaction === "😡" && event.senderID != api.getCurrentUserID()) {
-		if (event.messageID) return api.unsendMessage(event.messageID);
-	}
-	if (event.messageReply.senderID != api.getCurrentUserID()) return api.sendMessage(getText("returnCant"), event.threadID, event.messageID);
-	if (event.type != "message_reply") return api.sendMessage(getText("missingReply"), event.threadID, event.messageID);
-	return api.unsendMessage(event.messageReply.messageID);
-}
+module.exports.run = () => { }; // Not used
+
+module.exports.handleEvent = async function ({ api, event, getText }) {
+  const botID = api.getCurrentUserID();
+
+  // ✅ 1. Handle reaction to bot message
+  if (event.type === "message_reaction") {
+    const { reaction, messageID, userID } = event;
+
+    if (reaction === "😡" && userID !== botID) {
+      try {
+        await api.unsendMessage(messageID);
+      } catch (e) {
+        console.log("❌ Failed to unsend (reaction):", e.message);
+      }
+    }
+  }
+
+  // ✅ 2. Handle reply to bot message with keywords
+  else if (event.type === "message_reply") {
+    const { messageReply, body, threadID, messageID } = event;
+
+    // Only act if replied-to message is from the bot
+    if (messageReply.senderID == botID) {
+      const triggers = ["/unsent", "/uns", "😡", "sorry", "Sorry"];
+
+      if (triggers.includes(body.trim())) {
+        try {
+          await api.unsendMessage(messageReply.messageID);
+        } catch (e) {
+          console.log("❌ Failed to unsend (reply):", e.message);
+        }
+      }
+    } else {
+      return api.sendMessage(getText("returnCant"), threadID, messageID);
+    }
+  }
+};
