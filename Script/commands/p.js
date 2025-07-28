@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "pending",
+	name: "p",
 	version: "1.0.5",
 	credits: "MAHBUB SHAON",
 	hasPermssion: 2,
