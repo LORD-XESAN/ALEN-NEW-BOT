@@ -1,174 +1,38 @@
-Module.exports.config = {
- name: "info",
- version: "1.2.6",
- hasPermssion: 2,
- credits: "Shaon Ahmed",
- description: "info bot owner",
- commandCategory: "For users",
- hide:true,
- usages: "",
- cooldowns: 5,
-};
-
-
-module.exports.run = async function ({ api, event, args, Users, permssion, getText ,Threads}) {
- const content = args.slice(1, args.length);
- const { threadID, messageID, mentions } = event;
- const { configPath } = global.client;
- const { ADMINBOT } = global.config;
- const { NDH } = global.config;
- const { userName } = global.data;
- const request = global.nodemodule["request"];
- const fs = global.nodemodule["fs-extra"];
- const { writeFileSync } = global.nodemodule["fs-extra"];
- const mention = Object.keys(mentions);
- delete require.cache[require.resolve(configPath)];
- var config = require(configPath);
- const listAdmin = ADMINBOT || config.ADMINBOT || [];
- const listNDH = NDH || config.NDH || [];
- {
- const PREFIX = config.PREFIX;
- const namebot = config.BOTNAME;
- const { commands } = global.client;
- const threadSetting = (await Threads.getData(String(event.threadID))).data || 
- {};
- const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX 
- : global.config.PREFIX;
- const dateNow = Date.now();
- const time = process.uptime(),
- hours = Math.floor(time / (60 * 60)),
- minutes = Math.floor((time % (60 * 60)) / 60),
- seconds = Math.floor(time % 60);
- const data = [
- "Bạn không thể tìm được lệnh admin tại 'help' của MintBot",
- "Đừng mong chờ gì từ MintBot.",
- "Cái đoạn này á? Của SpermBot.",
- "Nếu muốn không lỗi lệnh thì hãy xài những lệnh có trong help vì những lệnh lỗi đã bị ẩn rồi.",
- "Đây là một con bot được các coder của MiraiProject nhúng tay vào.",
- "Muốn biết sinh nhật của Mint thì hãy xài 'birthday'.",
- "Cặc.",
- "Cút.",
- "Lồn.",
- "Bạn chưa biết.",
- "Bạn đã biết.",
- "Bạn sẽ biết.",
- "Không có gì là hoàn hảo, MintBot là ví dụ.",
- "Mirai dropped.",
- "MintBot là MiraiProject nhưng module là idea của SpermBot.",
- "Bạn không biết cách sử dụng MintBot? Đừng dùng nữa.",
- "Muốn chơi game? Qua bot khác mà chơi đây không rảnh",
- "MintBot có thể hiểu phụ nữ nhưng không thể có được họ.",
- "MintBot cân spam nhưng không có gì đáng để bạn spam."
- ];
- var i = 1;
- var msg = [];
- const moment = require("moment-timezone");
- const date = moment.tz("Asia/Dhaka").format("hh:mm:ss");
- for (const idAdmin of listAdmin) {
- if (parseInt(idAdmin)) {
- const name = await Users.getNameUser(idAdmin);
- msg.push(`${i++}/ ${name} - ${idAdmin}`);
- }
- }
- var msg1 = [];
- for (const idNDH of listNDH) {
- if (parseInt(idNDH)) {
- const name1 = (await Users.getData(idNDH)).name
- msg1.push(`${i++}/ ${name1} - ${idNDH}`);
- }
- }
- return api.sendMessage({ body: `====「 ${namebot} 」====\n» Prefix system: ${PREFIX}\n» Prefix box: ${prefix}\n» Modules: ${commands.size}\n» Ping: ${Date.now() - dateNow}ms\n──────────────\n======「 ADMIN 」 ======\n${msg.join("\n")}\n──────────────\nBot has been working for ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s)\n\n» Total users: ${global.data.allUserID.length} \n» Total threads: ${global.data.allThreadID.length}\n──────────────\n[thanks for using bot!!]`}, event.threadID); 
- }
-}/**
- * @author Shaon Ahmed
- * @warn Do not edit code or edit credits
- */
-
 module.exports.config = {
- name: "info",
- version: "1.2.6",
- hasPermssion: 0,
- credits: "Shaon Ahmed",
- description: "🥰আসসালামু আলাইকুম 🥰",
- commandCategory: "For users",
- hide:true,
- usages: "",
- cooldowns: 5,
+  'name': "info",
+  'version': "1.0.1",
+  'hasPermssion': 0x0,
+  'credits': "Ialamick Chat",
+  'description': "Admin and Bot info.",
+  'commandCategory': "...",
+  'cooldowns': 0x1,
+  'dependencies': {
+    'request': '',
+    'fs-extra': '',
+    'axios': ''
+  }
 };
-
-
-module.exports.run = async function ({ api, event, args, Users, permssion, getText ,Threads}) {
- const content = args.slice(1, args.length);
- const { threadID, messageID, mentions } = event;
- const { configPath } = global.client;
- const { ADMINBOT } = global.config;
- const { NDH } = global.config;
- const { userName } = global.data;
- const request = global.nodemodule["request"];
- const fs = global.nodemodule["fs-extra"];
- const { writeFileSync } = global.nodemodule["fs-extra"];
- const mention = Object.keys(mentions);
- delete require.cache[require.resolve(configPath)];
- var config = require(configPath);
- const listAdmin = ADMINBOT || config.ADMINBOT || [];
- const listNDH = NDH || config.NDH || [];
- {
- const PREFIX = config.PREFIX;
- const namebot = config.BOTNAME;
- const { commands } = global.client;
- const threadSetting = (await Threads.getData(String(event.threadID))).data || 
- {};
- const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX 
- : global.config.PREFIX;
- const dateNow = Date.now();
- const time = process.uptime(),
- hours = Math.floor(time / (60 * 60)),
- minutes = Math.floor((time % (60 * 60)) / 60),
- seconds = Math.floor(time % 60);
- const data = [
- "Bạn không thể tìm được lệnh admin tại 'help' của MintBot",
- "Đừng mong chờ gì từ MintBot.",
- "Cái đoạn này á? Của SpermBot.",
- "Nếu muốn không lỗi lệnh thì hãy xài những lệnh có trong help vì những lệnh lỗi đã bị ẩn rồi.",
- "Đây là một con bot được các coder của MiraiProject nhúng tay vào.",
- "Muốn biết sinh nhật của Mint thì hãy xài 'birthday'.",
- "Cặc.",
- "Cút.",
- "Lồn.",
- "Bạn chưa biết.",
- "Bạn đã biết.",
- "Bạn sẽ biết.",
- "Không có gì là hoàn hảo, MintBot là ví dụ.",
- "Mirai dropped.",
- "MintBot là MiraiProject nhưng module là idea của SpermBot.",
- "Bạn không biết cách sử dụng MintBot? Đừng dùng nữa.",
- "Muốn chơi game? Qua bot khác mà chơi đây không rảnh",
- "MintBot có thể hiểu phụ nữ nhưng không thể có được họ.",
- "MintBot cân spam nhưng không có gì đáng để bạn spam."
- ];
- var i = 1;
- var msg = [];
- const moment = require("moment-timezone");
- const date = moment.tz("Asia/Dhaka").format("hh:mm:ss");
- for (const idAdmin of listAdmin) {
- if (parseInt(idAdmin)) {
- const name = await Users.getNameUser(idAdmin);
- msg.push(`${i++}/ ${name} - ${idAdmin}`);
- }
- }
- var msg1 = [];
- for (const idNDH of listNDH) {
- if (parseInt(idNDH)) {
- const name1 = (await Users.getData(idNDH)).name
- msg1.push(`${i++}/ ${name1} - ${idNDH}`);
- }
- }
- return api.sendMessage({ body: 
- `🍀----আসসালামু আলাইকুম----🍀
-
-┏━━•❅•••❈•••❈•••❅•━━┓\n\n    「 ${namebot} 」\n\n┗━━•❅•••❈•••❈•••❅•━━┛ \n\n______________________________\n\n↓↓_𝗥𝗢𝗕𝗢𝗧 𝗦𝗬𝗦𝗧𝗘𝗠 𝗜𝗡𝗙𝗢_↓↓\n\n» 𝗣𝗿𝗲𝗳𝗶𝘅 𝘀𝘆𝘀𝘁𝗲𝗺: ${PREFIX}\n\n» 𝗣𝗿𝗲𝗳𝗶𝘅 𝗯𝗼𝘅: ${prefix}\n\n» 𝗧𝗼𝘁𝗮𝗹 𝗠𝗼𝗱𝘂𝗹𝗲𝘀: ${commands.size}\n\n» 𝗣𝗶𝗻𝗴: ${Date.now() - dateNow}ms\n______________________________\n\n ↓↓_𝗥𝗢𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥 𝗜𝗡𝗙𝗢_↓↓\n\n 
-𝗡𝗔𝗠𝗘 :>TâMïM Khan
-
-______________________________\n\n----↓↓𝙍𝙤𝙗𝙤𝙩 𝙖𝙘𝙩𝙞𝙫𝙚 𝙩𝙞𝙢𝙚↓↓----\n\n ${hours} : ${minutes} : ${seconds} second(s)\n\n______________________________\n» 𝗧𝗢𝗧𝗔𝗟 𝗨𝗦𝗘𝗥𝗦: ${global.data.allUserID.length} \n\n» 𝗧𝗢𝗧𝗔𝗟 𝗚𝗥𝗢𝗨𝗣: ${global.data.allThreadID.length}\n______________________________\n\n `}, event.threadID); 
- }
-}
+module.exports.run = async function ({
+  api: _0x5df86b,
+  event: _0x1bbdfe,
+  args: _0xfe6473,
+  client: _0x40ae6f,
+  Users: _0x1a983f,
+  Threads: _0xce2348,
+  __GLOBAL: _0x3c3e23,
+  Currencies: _0x26c195
+}) {
+  const _0x32c61e = global.nodemodule.request;
+  const _0x54f377 = global.nodemodule["fs-extra"];
+  const _0x15f9de = process.uptime();
+  const _0xc312c9 = Math.floor(_0x15f9de / 3600);
+  const _0x5c3d4e = Math.floor(_0x15f9de % 3600 / 60);
+  const _0x13352a = Math.floor(_0x15f9de % 60);
+  const _0x56621e = require("moment-timezone");
+  var _0x51de78 = _0x56621e.tz("Asia/Manila").format("『D/MM/YYYY』 【hh:mm:ss】");
+  // Removed image sending link part
+  var _0x318093 = () => _0x5df86b.sendMessage({
+    'body': "•—»✨𝐀𝐝𝐦𝐢𝐧 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧✨🌺\n•┄┅═════❁🌺❁═════┅┄•\n\n 𝐁𝐨𝐭 𝐍𝐚𝐦𝐞 : AI Assistant \n\n𝐁𝐨𝐭 𝐀𝐝𝐦𝐢𝐧 : Tamim \n\n𝐁𝐨𝐭 𝐎𝐰𝐧𝐞𝐫 : Tamim Khan \n\n•┄┅═════❁🌺❁═════┅┄•\n🌺✨𝐎𝐭𝐡𝐞𝐫𝐬 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧✨🌺\n •┄┅═════❁🌺❁═════┅┄•\n\n𝐓𝐨𝐝𝐚𝐲 𝐈𝐬 𝐓𝐢𝐦𝐞 : " + _0x51de78 + " \n\n𝐁𝐨𝐭 𝐈𝐬 𝐑𝐮𝐧𝐧𝐢𝐧𝐠 " + _0xc312c9 + ':' + _0x5c3d4e + ':' + _0x13352a + ".\n\n𝐓𝐡𝐚𝐧𝐤𝐬 𝐅𝐨𝐫 𝐔𝐬𝐢𝐧𝐠  ༄🌺\n｢🕋｣" + global.config.BOTNAME + "｢🕋｣",
+  }, _0x1bbdfe.threadID); // Removed attachment and callback for unlinkSync
+  return _0x318093(); // Directly call the sendMessage function
+};
