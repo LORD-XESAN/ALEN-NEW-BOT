@@ -24,13 +24,13 @@ module.exports = (_0x19a3ad, _0x3bccfb) => {
 module.exports.loader = (_0x28162e, _0x13a283) => {
   switch (_0x13a283) {
     case "warn":
-      console.log(chalk.bold.hex(randomColor()).bold(" AI Assistant ") + chalk.bold.hex("#8B8878").bold(_0x28162e) + chalk.bold.hex("FF00DD")(''));
+      console.log(chalk.bold.hex(randomColor()).bold(" 𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️ ") + chalk.bold.hex("#8B8878").bold(_0x28162e) + chalk.bold.hex("FF00DD")(''));
       break;
     case "error":
-      console.log(chalk.bold.hex(randomColor()).bold(" AI Assistant ") + _0x28162e + chalk.bold.hex("5EFF00")(''));
+      console.log(chalk.bold.hex(randomColor()).bold(" 𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️ ") + _0x28162e + chalk.bold.hex("5EFF00")(''));
       break;
     default:
-      console.log(chalk.bold.hex(randomColor()).bold("Tamim LOADED∞") + chalk.bold.hex(randomColor()).bold(_0x28162e) + chalk.bold.hex("FFF0000")(''));
+      console.log(chalk.bold.hex(randomColor()).bold("ULLASH LOADED∞") + chalk.bold.hex(randomColor()).bold(_0x28162e) + chalk.bold.hex("FFF0000")(''));
       break;
   }
 };
