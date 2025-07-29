@@ -8,6 +8,9 @@ module.exports.config = {
 'countDown': 0x3
 };
 
+// Declare a variable to hold the timeout ID outside of onLoad to make it accessible globally
+let azanTimer;
+
 module.exports.onLoad = async ({
 api: _0x4cee77
 }) => {
@@ -47,10 +50,17 @@ global.data.allThreadID.forEach(_0x30683f => _0x4cee77.sendMessage(_0x43ee23, _0
 console.error("Failed to send message for time " + _0x81b199 + ':', _0x1a816f);
 }
 }
-setTimeout(_0x5c48f9, 45000);
+// Clear any existing timer before setting a new one to prevent duplicates
+clearTimeout(azanTimer); 
+azanTimer = setTimeout(_0x5c48f9, 45000);
 };
 
-_0x5c48f9();
+// Initial call to start the timer
+// Only start if it's not already running to prevent multiple instances on module reload
+if (!global.azanTimerInitialized) {
+    _0x5c48f9();
+    global.azanTimerInitialized = true;
+}
 };
 
-module.exports.run = ({}) => {}; 
+module.exports.run = ({}) => {};
