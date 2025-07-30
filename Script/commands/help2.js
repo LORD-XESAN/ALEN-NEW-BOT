@@ -1,5 +1,5 @@
-Module.exports.config = {
-  'name': "help2",
+module.exports.config = {
+  'name': "helpall",
   'version': "1.0.2",
   'hasPermssion': 2,
   'credits': "MAHBUB SHAON",
@@ -14,7 +14,7 @@ Module.exports.config = {
 };
 module.exports.languages = {
   'en': {
-    'moduleInfo': "╔═════ 『 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 』 ═════╗\n ║ ✦ 𝐍𝐀𝐌𝐄: %1\n ║ ✦ 𝐔𝐒𝐀𝐆𝐄: %3\n ║ ✦ 𝐃𝐄𝐒𝐂𝐑𝐈𝐏𝐓𝐈𝐎𝐍: %2\n ║ ✦ 𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐘: %4\n ║ ✦ 𝐂𝐎𝐎𝐋𝐃𝐎𝐖𝐍: %5 seconds(s)\n ║ ✦ 𝐏𝐄𝐑𝐌𝐈𝐒𝐒𝐈𝐎𝐍: %6\n ║ ✦ 𝐂𝐑𝐄𝐃𝐈𝐓𝐒: Ullash ッ\n╚═════ 『 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 』 ═════╝",
+    'moduleInfo': "╔════•| 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐍𝐅𝐎 |•════╗\n» 𝐍𝐚𝐦𝐞: %1\n» 𝐔𝐬𝐚𝐠𝐞: %3\n» 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧: %2\n» 𝐂𝐚𝐭𝐞𝐠𝐨𝐫𝐲: %4\n» 𝐂𝐨𝐨𝐥𝐝𝐨𝐰𝐧: %5 seconds(s)\n» 𝐏𝐞𝐫𝐦𝐢𝐬𝐬𝐢𝐨𝐧: %6\n╚════•| 𝐀𝐈 𝐀𝐒𝐒𝐈𝐒𝐓𝐀𝐍𝐓 |•════╝",
     'helpList': "[ There are %1 commands on this bot, Use: \"%2help nameCommand\" to know how to use! ]",
     'user': "User",
     'adminGroup': "Admin group",
@@ -83,34 +83,30 @@ module.exports.run = function ({
         _0x15c87e.find(_0x150ce7 => _0x150ce7.group.toLowerCase() == _0x4df3ea.config.commandCategory.toLowerCase()).cmds.push(_0x4df3ea.config.name);
       }
     }
-    _0x15c87e.forEach(_0x163969 => _0xf49f2a += `⚜️ ${(_0x163969.group.charAt(0).toUpperCase() + _0x163969.group.slice(1))}:\n❯ ${(_0x163969.cmds.map(cmd => cmd.charAt(0).toUpperCase() + cmd.slice(1))).join("  •  ")}\n\n`);
-
+    _0x15c87e.forEach(_0x163969 => _0xf49f2a += "» " + (_0x163969.group.charAt(0).toUpperCase() + _0x163969.group.slice(1)) + " \n» " + _0x163969.cmds.join(" • ") + "\n\n");
     return _0x64d666.getUserInfo(parseInt("61551846081032"), (_0x27e2f5, _0x58fcde) => {
-      if (_0x27e2f5) {
-        return console.log(_0x27e2f5);
-      }
-      var _0x4f4a1b = Object.keys(_0x58fcde);
-      var _0xb863df = _0x58fcde[_0x4f4a1b].name.replace('@', '');
-      let _0x9ca67e = function () {
-        _0x64d666.sendMessage({
-          'body': `╔═══『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』═══╗\n${_0xf49f2a}╚═══『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』═══╝\n\n───「 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 」───\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Name?]\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Page?]\n✦ 𝐎𝐖𝐍𝐄𝐑: TâMïM ッ\n✦ 𝐓𝐎𝐓𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒: ${_0x288db6.size}\n───────────────`,
-          'mentions': [{
-            'tag': _0xb863df,
-            'id': "61551846081032",
-            'fromIndex': 0x0
-          }],
-        }, _0x1e7ccd.threadID, (_0x436f26, _0x612d8b) => {
-          if (_0x7b08b5 == false) {
-            setTimeout(() => {
-              return _0x64d666.unsendMessage(_0x612d8b.messageID);
-            }, _0x3b4cc3 * 1000);
-          } else {
-            return;
-          }
-        }, _0x1e7ccd.messageID);
-      };
-      _0x9ca67e();
-    });
+        if (_0x27e2f5) {
+          return console.log(_0x27e2f5);
+        }
+        var _0x4f4a1b = Object.keys(_0x58fcde);
+        var _0xb863df = _0x58fcde[_0x4f4a1b].name.replace('@', '');
+          _0x64d666.sendMessage({
+            'body': "╭─•» 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 «•─╮\n\n" + _0xf49f2a + ("» 𝐔𝐬𝐞: " + _0x4722cf + "help [Name?]\n» 𝐔𝐬𝐞: " + _0x4722cf + "help [Page?]\n» 𝐎𝐰𝐧𝐞𝐫: TâMïM ッ\n» 𝐓𝐨𝐭𝐚𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬: " + _0x288db6.size + "\n╰─•» 𝐀𝐈 𝐀𝐒𝐒𝐈𝐒𝐓𝐀𝐍𝐓 «•─╯"),
+            'mentions': [{
+              'tag': _0xb863df,
+              'id': "61551846081032",
+              'fromIndex': 0x0
+            }]
+          }, _0x1e7ccd.threadID, (_0x436f26, _0x612d8b) => {
+            if (_0x7b08b5 == false) {
+              setTimeout(() => {
+                return _0x64d666.unsendMessage(_0x612d8b.messageID);
+              }, _0x3b4cc3 * 1000);
+            } else {
+              return;
+            }
+          }, _0x1e7ccd.messageID);
+      });
   }
   ;
   if (!_0x5e13e8) {
@@ -126,16 +122,16 @@ module.exports.run = function ({
     const _0x53ea96 = 999 * _0x42ee77 - 999;
     _0x40f233 = _0x53ea96;
     const _0x415bb4 = _0x45ae1c.slice(_0x53ea96, _0x53ea96 + 999);
-    for (let _0xf67df2 of _0x415bb4) _0x1d56bd += `♦️ ${_0xf67df2.charAt(0).toUpperCase() + _0xf67df2.slice(1)}\n`;
-    const _0x217452 = `───「 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 」───\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Name?]\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Page?]\n✦ 𝐎𝐖𝐍𝐄𝐑: TâMïM ッ\n✦ 𝐓𝐎𝐓𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒: ${_0x45ae1c.length}\n✦ 𝐏𝐀𝐆𝐄: ${_0x42ee77}/${Math.ceil(_0x45ae1c.length / 999)}\n───────────────`;
+    for (let _0xf67df2 of _0x415bb4) _0x1d56bd += "» [ " + _0xf67df2 + " ] «\n";
+    const _0x217452 = "» 𝐔𝐬𝐞: " + _0x4722cf + "help [Name?]\n» 𝐔𝐬𝐞: " + _0x4722cf + "help [Page?]\n» 𝐎𝐰𝐧𝐞𝐫: TâMïM ッ\n» 𝐓𝐨𝐭𝐚𝐥 𝐂𝐨𝐦𝐦𝐚𝐧𝐝𝐬: [" + _0x45ae1c.length + "]\n» 𝐏𝐚𝐠𝐞: [" + _0x42ee77 + '/' + Math.ceil(_0x45ae1c.length / 999) + "]\n╚════•| 𝐀𝐈 𝐀𝐒𝐒𝐈𝐒𝐓𝐀𝐍𝐓 |•════╝";
     var _0x23cd20 = () => _0x64d666.sendMessage({
-      'body': `╔═══『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』═══╗\n${_0x1d56bd}╚═══『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』═══╝\n\n${_0x217452}`,
-    }, _0x1e7ccd.threadID, () => {}, _0x1e7ccd.messageID);
+      'body': "╭─•» 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 «•─╮\n\n" + _0x1d56bd + _0x217452
+    }, _0x1e7ccd.threadID, _0x1e7ccd.messageID);
     return _0x23cd20();
   }
   const _0x1569fc = _0x272a7d("moduleInfo", _0x5e13e8.config.name, _0x5e13e8.config.description, '' + (_0x5e13e8.config.usages ? _0x5e13e8.config.usages : ''), _0x5e13e8.config.commandCategory, _0x5e13e8.config.cooldowns, _0x5e13e8.config.hasPermssion == 0 ? _0x272a7d("user") : _0x5e13e8.config.hasPermssion == 1 ? _0x272a7d("adminGroup") : _0x272a7d("adminBot"), _0x5e13e8.config.credits);
   var _0x23cd20 = () => _0x64d666.sendMessage({
-    'body': _0x1569fc,
-  }, _0x1e7ccd.threadID, () => {}, _0x1e7ccd.messageID);
+    'body': _0x1569fc
+  }, _0x1e7ccd.threadID, _0x1e7ccd.messageID);
   return _0x23cd20();
 };
