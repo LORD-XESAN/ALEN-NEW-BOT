@@ -14,7 +14,7 @@ module.exports.config = {
 };
 module.exports.languages = {
   'en': {
-    'moduleInfo': "╔═════ 『 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 』 ═════╗\n ║ ✦ 𝐍𝐀𝐌𝐄: %1\n ║ ✦ 𝐔𝐒𝐀𝐆𝐄: %3\n ║ ✦ 𝐃𝐄𝐒𝐂𝐑𝐈𝐏𝐓𝐈𝐎𝐍: %2\n ║ ✦ 𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐘: %4\n ║ ✦ 𝐂𝐎𝐎𝐋𝐃𝐎𝐖𝐍: %5 seconds(s)\n ║ ✦ 𝐏𝐄𝐑𝐌𝐈𝐒𝐒𝐈𝐎𝐍: %6\n ║ ✦ 𝐂𝐑𝐄𝐃𝐈𝐓𝐒: Ullash ッ\n╚═════ 『 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 』 ═════╝",
+    'moduleInfo': "╔═════『 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 』════╗\n ║ ✦ 𝐍𝐀𝐌𝐄: %1\n ║ ✦ 𝐔𝐒𝐀𝐆𝐄: %3\n ║ ✦ 𝐃𝐄𝐒𝐂𝐑𝐈𝐏𝐓𝐈𝐎𝐍: %2\n ║ ✦ 𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐘: %4\n ║ ✦ 𝐂𝐎𝐎𝐋𝐃𝐎𝐖𝐍: %5 seconds(s)\n ║ ✦ 𝐏𝐄𝐑𝐌𝐈𝐒𝐒𝐈𝐎𝐍: %6\n ║ ✦ 𝐂𝐑𝐄𝐃𝐈𝐓𝐒: Ullash ッ\n╚═════『 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 』════╝",
     'helpList': "[ There are %1 commands on this bot, Use: \"%2help nameCommand\" to know how to use! ]",
     'user': "User",
     'adminGroup': "Admin group",
@@ -93,7 +93,7 @@ module.exports.run = function ({
       var _0xb863df = _0x58fcde[_0x4f4a1b].name.replace('@', '');
       let _0x9ca67e = function () {
         _0x64d666.sendMessage({
-          'body': `╔═════ 『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』 ═════╗\n${_0xf49f2a}╚═════ 『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』 ═════╝\n\n───「 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 」───\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Name?]\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Page?]\n✦ 𝐎𝐖𝐍𝐄𝐑: TâMïM ッ\n✦ 𝐓𝐎𝐓𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒: ${_0x288db6.size}\n───────────────`,
+          'body': `╔═══『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』═══╗\n${_0xf49f2a}╚═════『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』════╝\n\n───「 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 」───\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Name?]\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Page?]\n✦ 𝐎𝐖𝐍𝐄𝐑: TâMïM ッ\n✦ 𝐓𝐎𝐓𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒: ${_0x288db6.size}\n───────────────`,
           'mentions': [{
             'tag': _0xb863df,
             'id': "61551846081032",
