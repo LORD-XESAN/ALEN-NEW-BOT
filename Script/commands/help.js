@@ -15,11 +15,19 @@ module.exports.config = {
 
 module.exports.languages = {
  "en": {
-    "moduleInfo": "╭──────•◈•──────╮\n |        TâMïM\n |●𝗡𝗮𝗺𝗲: •—» %1 «—•\n |●𝗨𝘀𝗮𝗴𝗲: %3\n |●𝗗𝗲𝘀𝗰𝗿𝗶p𝘁𝗶𝗼𝗻: %2\n |●𝗖𝗮𝘁𝗲𝗴𝗼𝗿𝘆: %4\n |●𝗪𝗮𝗶𝘁𝗶𝗻𝗴 𝘁𝗶𝗺𝗲: %5 seconds(s)\n |●𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗶𝗼𝗻: %6\n |𝗠𝗼𝗱𝘂𝗹𝗲 𝗰𝗼𝗱𝗲 𝗯𝘆\n |•—» TâMïM ッ «—•\n╰──────•◈•──────╯",
-    "helpList": '[ There are %1 commands on this bot, Use: "%2help nameCommand" to know how to use! ]',
+    "moduleInfo": "╔════⚜️ *𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐃𝐄𝐓𝐀𝐈𝐋𝐒* ⚜️════╗\n" +
+                  "║  🌟 *Name:* %1\n" +
+                  "║  📝 *Description:* %2\n" +
+                  "║  💡 *Usage:* %3\n" +
+                  "║  📁 *Category:* %4\n" +
+                  "║  ⏳ *Cooldown:* %5 seconds\n" +
+                  "║  🔑 *Permission:* %6\n" +
+                  "╚═════════════════════╝\n" +
+                  "✨ *Module by:* TâMïM ッ",
+    "helpList": 'There are %1 commands on this bot. Use: "%2help [command_name]" to know how to use!',
     "user": "User",
-    "adminGroup": "Admin group",
-    "adminBot": "Admin bot"
+    "adminGroup": "Admin Group",
+    "adminBot": "Bot Admin"
   }
 };
 
@@ -57,11 +65,17 @@ module.exports.run = function({ api, event, args, getText }) {
     }
 
     group.forEach(commandGroup => {
-      msg += `❄️ ${commandGroup.group.charAt(0).toUpperCase() + commandGroup.group.slice(1)} \n${commandGroup.cmds.join(' • ')}\n\n`;
+      msg += `👑 *${commandGroup.group.charAt(0).toUpperCase() + commandGroup.group.slice(1)} Commands* 👑\n• ${commandGroup.cmds.join(' • ')}\n\n`;
     });
 
     return api.sendMessage(
-      `✿🄲🄾🄼🄼🄰🄽🄳 🄻🄸🅂🅃✿\n\n` + msg + `✿══════════════✿\n│𝗨𝘀𝗲 ${prefix}help [Name?]\n│𝗨𝘀𝗲 ${prefix}help [Page?]\n│𝗡𝗔𝗠𝗘 𝗢𝗪𝗡𝗘𝗥 : │TâMïM ッ\n│𝗧𝗢𝗧𝗔𝗟 :  ${commands.size}\n————————————`,
+      `╔═════⚜️ *𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓* ⚜️═════╗\n` + msg +
+      `╚════════════════════════╝\n` +
+      `╭───────⚜️ *INFO* ⚜️───────╮\n` +
+      `│  💡 *Usage:* ${prefix}help [Name?] or ${prefix}help [Page?]\n` +
+      `│  👤 *Owner:* TâMïM ッ\n` +
+      `│  📊 *Total Commands:* ${commands.size}\n` +
+      `╰───────────────────────╯`,
       event.threadID,
       messageID
     );
@@ -83,12 +97,18 @@ module.exports.run = function({ api, event, args, getText }) {
     i = first;
     const helpView = arrayInfo.slice(first, first + numberOfOnePage);
 
-    for (const cmds of helpView) msg += `•—»[ ${cmds} ]«—•\n`;
+    for (const cmds of helpView) msg += `💎 *${cmds}*\n`;
 
-    const siu = `╭──────•◈•──────╮\n🄲🄾🄼🄼🄰🄽🄳 🄻🄸🅂🅃       \n╰──────•◈•──────╯`;
-    const text = `╭──────•◈•──────╮\n│𝗨𝘀𝗲 ${prefix}help [Name?]\n│𝗨𝘀𝗲 ${prefix}help [Page?]\n│𝗡𝗔𝗠𝗘 𝗢𝗪𝗡𝗘𝗥 : TâMïM ッ\n│𝗧𝗢𝗧𝗔𝗟 : [${arrayInfo.length}]\n│📛🄿🄰🄶🄴📛 :  [${page}/${Math.ceil(arrayInfo.length/numberOfOnePage)}]\n╰──────•◈•──────╯`; 
+    const siu = `╔═════⚜️ *𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓* ⚜️═════╗\n`;
+    const text = `╚════════════════════════╝\n` +
+                 `╭───────⚜️ *INFO* ⚜️───────╮\n` +
+                 `│  💡 *Usage:* ${prefix}help [Name?] or ${prefix}help [Page?]\n` +
+                 `│  👤 *Owner:* TâMïM ッ\n` +
+                 `│  📊 *Total Commands:* ${arrayInfo.length}\n` +
+                 `│  📄 *Page:* ${page}/${Math.ceil(arrayInfo.length/numberOfOnePage)}\n` +
+                 `╰───────────────────────╯`;
 
-    return api.sendMessage(siu + "\n\n" + msg + text, event.threadID, messageID);
+    return api.sendMessage(siu + "\n" + msg + text, event.threadID, messageID);
  }
 
  const leiamname = getText("moduleInfo", command.config.name, command.config.description, `${(command.config.usages) ? command.config.usages : ""}`, command.config.commandCategory, command.config.cooldowns, ((command.config.hasPermssion == 0) ? getText("user") : (command.config.hasPermssion == 1) ? getText("adminGroup") : getText("adminBot")), command.config.credits);
