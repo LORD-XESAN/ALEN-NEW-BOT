@@ -14,7 +14,7 @@ module.exports.config = {
 };
 module.exports.languages = {
   'en': {
-    'moduleInfo': "╭──────•◈•──────╮\n |    AI  Assistant   \n |●𝗡𝗮𝗺𝗲: •—» %1 «—•\n |●𝗨𝘀𝗮𝗴𝗲: %3\n |●𝗗𝗲𝘀𝗰𝗿𝗶p𝘁𝗶𝗼𝗻: %2\n |●𝗖𝗮𝘁𝗲𝗴𝗼𝗿𝘆: %4\n |●𝗪𝗮𝗶𝘁𝗶𝗻𝗴 𝘁𝗶𝗺𝗲: %5 seconds(s)\n |●𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗶𝗼𝗻: %6\n |𝗠𝗼𝗱𝘂𝗹𝗲 𝗰𝗼𝗱𝗲 𝗯𝘆\n |•—» Ullash ッ «—•\n╰──────•◈•──────╯",
+    'moduleInfo': "╔═════ 『 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 』 ═════╗\n ║ ✦ 𝐍𝐀𝐌𝐄: %1\n ║ ✦ 𝐔𝐒𝐀𝐆𝐄: %3\n ║ ✦ 𝐃𝐄𝐒𝐂𝐑𝐈𝐏𝐓𝐈𝐎𝐍: %2\n ║ ✦ 𝐂𝐀𝐓𝐄𝐆𝐎𝐑𝐘: %4\n ║ ✦ 𝐂𝐎𝐎𝐋𝐃𝐎𝐖𝐍: %5 seconds(s)\n ║ ✦ 𝐏𝐄𝐑𝐌𝐈𝐒𝐒𝐈𝐎𝐍: %6\n ║ ✦ 𝐂𝐑𝐄𝐃𝐈𝐓𝐒: Ullash ッ\n╚═════ 『 𝐒𝐘𝐒𝐓𝐄𝐌 𝐈𝐍𝐅𝐎 』 ═════╝",
     'helpList': "[ There are %1 commands on this bot, Use: \"%2help nameCommand\" to know how to use! ]",
     'user': "User",
     'adminGroup': "Admin group",
@@ -83,7 +83,7 @@ module.exports.run = function ({
         _0x15c87e.find(_0x150ce7 => _0x150ce7.group.toLowerCase() == _0x4df3ea.config.commandCategory.toLowerCase()).cmds.push(_0x4df3ea.config.name);
       }
     }
-    _0x15c87e.forEach(_0x163969 => _0xf49f2a += `✨ ${(_0x163969.group.charAt(0).toUpperCase() + _0x163969.group.slice(1))}:\n${_0x163969.cmds.join(" • ")}\n\n`); // Changed style here
+    _0x15c87e.forEach(_0x163969 => _0xf49f2a += `⚜️ ${(_0x163969.group.charAt(0).toUpperCase() + _0x163969.group.slice(1))}:\n❯ ${(_0x163969.cmds.map(cmd => cmd.charAt(0).toUpperCase() + cmd.slice(1))).join("  •  ")}\n\n`);
 
     return _0x64d666.getUserInfo(parseInt("61551846081032"), (_0x27e2f5, _0x58fcde) => {
       if (_0x27e2f5) {
@@ -93,12 +93,7 @@ module.exports.run = function ({
       var _0xb863df = _0x58fcde[_0x4f4a1b].name.replace('@', '');
       let _0x9ca67e = function () {
         _0x64d666.sendMessage({
-          'body': `🌸 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧 🌸\n\n${_0xf49f2a}---
-❖ 𝗨𝘀𝗲: ${_0x4722cf}help [Name?]
-❖ 𝗨𝘀𝗲: ${_0x4722cf}help [Page?]
-❖ 𝗡𝗔𝗠𝗘 𝗢𝗪𝗡𝗘𝗥: TâMïM ッ
-❖ 𝗧𝗢𝗧𝗔𝗟 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦: ${_0x288db6.size}
----`, // Changed style here
+          'body': `╔═════ 『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』 ═════╗\n${_0xf49f2a}╚═════ 『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』 ═════╝\n\n───「 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 」───\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Name?]\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Page?]\n✦ 𝐎𝐖𝐍𝐄𝐑: TâMïM ッ\n✦ 𝐓𝐎𝐓𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒: ${_0x288db6.size}\n───────────────`,
           'mentions': [{
             'tag': _0xb863df,
             'id': "61551846081032",
@@ -131,19 +126,10 @@ module.exports.run = function ({
     const _0x53ea96 = 999 * _0x42ee77 - 999;
     _0x40f233 = _0x53ea96;
     const _0x415bb4 = _0x45ae1c.slice(_0x53ea96, _0x53ea96 + 999);
-    for (let _0xf67df2 of _0x415bb4) _0x1d56bd += `❖ ${_0xf67df2}\n`; // Changed style here
-    const _0x217452 = `---
-❖ 𝗨𝘀𝗲: ${_0x4722cf}help [Name?]
-❖ 𝗨𝘀𝗲: ${_0x4722cf}help [Page?]
-❖ 𝗡𝗔𝗠𝗘 𝗢𝗪𝗡𝗘𝗥: TâMïM ッ
-❖ 𝗧𝗢𝗧𝗔𝗟 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦: ${_0x45ae1c.length}
-❖ 𝗣𝗔𝗚𝗘: ${_0x42ee77}/${Math.ceil(_0x45ae1c.length / 999)}
----`; // Changed style here
+    for (let _0xf67df2 of _0x415bb4) _0x1d56bd += `♦️ ${_0xf67df2.charAt(0).toUpperCase() + _0xf67df2.slice(1)}\n`;
+    const _0x217452 = `───「 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍 」───\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Name?]\n✦ 𝐔𝐒𝐀𝐆𝐄: ${_0x4722cf}help [Page?]\n✦ 𝐎𝐖𝐍𝐄𝐑: TâMïM ッ\n✦ 𝐓𝐎𝐓𝐀𝐋 𝐂𝐎𝐌𝐌𝐀𝐍𝐃𝐒: ${_0x45ae1c.length}\n✦ 𝐏𝐀𝐆𝐄: ${_0x42ee77}/${Math.ceil(_0x45ae1c.length / 999)}\n───────────────`;
     var _0x23cd20 = () => _0x64d666.sendMessage({
-      'body': `---
-🌐 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧 🌐
----
-\n${_0x1d56bd}${_0x217452}`, // Changed style here
+      'body': `╔═════ 『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』 ═════╗\n${_0x1d56bd}╚═════ 『 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 』 ═════╝\n\n${_0x217452}`,
     }, _0x1e7ccd.threadID, () => {}, _0x1e7ccd.messageID);
     return _0x23cd20();
   }
