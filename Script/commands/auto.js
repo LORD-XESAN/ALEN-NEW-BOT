@@ -118,10 +118,9 @@ module.exports.handleEvent = async function ({ api, event }) {
         api.setMessageReaction("❌", event.messageID, (err) => {}, true);
         await api.sendMessage(
             `╔════🚫𝗘𝗿𝗿𝗼𝗿 𝗢𝗰𝗰𝘂𝗿𝗿𝗲𝗱🚫════╗
-                   ❌ Something went wrong! 😔
-                   📝 Error: ${error.message}
-                   🔄 Please try again later!
-                   ╚════💫AI Assistant💫════╝`,
+    ❌ Something went wrong! 😔
+     🔄 Please try again later!
+       ╚════💫AI Assistant💫════╝`,
             event.threadID, event.messageID
         );
     }
