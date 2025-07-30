@@ -9,7 +9,7 @@ module.exports = {
 		version: "1.0",
 		author: "milan-says",
 		countDown: 5,
-		haspermision: 2,
+		haspermission: 2,
 		shortDescription: "make fucking image",
 		longDescription: "",
 		category: "18+",
