@@ -16,8 +16,8 @@ module.exports.config = {
 };
 module.exports.languages = {
 'en': {
-'moduleInfo': "╭──────•◈•──────╮\n | 𝗝𝗼𝘆 𝗰𝗵𝗮𝘁 𝗯𝗼𝘁\n |●𝗡𝗮𝗺𝗲: •—» %1 «—•\n |●𝗨𝘀𝗮𝗴𝗲: %3\n |●𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻: %2\n |●𝗖𝗮𝘁𝗲𝗴𝗼𝗿𝘆: %4\n |●𝗪𝗮𝗶𝗧𝗶𝗻𝗴 𝘁𝗶𝗺𝗲: %5 seconds(s)\n |●𝗣𝗲𝗿𝗺𝗶𝘀𝘀𝗶𝗼𝗻: %6\n |𝗠𝗼𝗱𝘂𝗹𝗲 𝗰𝗼𝗱𝗲 𝗯𝘆\n |•—» Joy «—•\n╰──────•◈•──────╯",
-'helpList': "[ There are %1 commands on this bot, Use: \"%2help nameCommand\" to know how to use! ]",
+'moduleInfo': "💎━━━━━━『 𝐀𝐈 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 』━━━━━━💎\n❖ 𝐍𝐚𝐦𝐞: %1\n❖ 𝐔𝐬𝐚𝐠𝐞: %3\n❖ 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧: %2\n❖ 𝐂𝐚𝐭𝐞𝐠𝐨𝐫𝐲: %4\n❖ 𝐖𝐚𝐢𝐭𝐢𝐧𝐠 𝐓𝐢𝐦𝐞: %5 seconds(s)\n❖ 𝐏𝐞𝐫𝐦𝐢𝐬𝐬𝐢𝐨𝐧: %6\n💎━━━━━━『 𝐀𝐈 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 』━━━━━━💎",
+'helpList': "✨ There are %1 commands on this bot. Use: \"%2help nameCommand\" to know how to use! ✨",
 'user': "User",
 'adminGroup': "Admin group",
 'adminBot': "Admin bot"
@@ -78,9 +78,9 @@ _0x592ef0.push({
 }
 }
 for (const _0x3bdb5c of _0x592ef0) {
-_0x1c664d += "🔹 " + _0x3bdb5c.group.toUpperCase() + "\n" + _0x3bdb5c.cmds.join(" • ") + "\n\n";
+_0x1c664d += "🌟 " + _0x3bdb5c.group.toUpperCase() + "\n" + _0x3bdb5c.cmds.join(" • ") + "\n\n";
 }
-return _0x5d71ef("📚 All Commands by Category 📚\n\n" + _0x1c664d + "━━━━━━━━━━━━\n🔍 Use: " + _0x515e92 + "help [name]\n👤 Owner: TâMïM \n📦 Total: " + _0x22cdfb.size);
+return _0x5d71ef("💫━━━━━━『 𝐀𝐈 𝐀𝐬𝐬𝐢𝐬𝐭𝐚𝐧𝐭 』━━━━━━💫\n\n" + _0x1c664d + "━━━━━━━━━━━━━━━━━\n🔍 Use: " + _0x515e92 + "help [name]\n👤 Owner: TâMïM \n📦 Total Commands: " + _0x22cdfb.size + "\n✨━━━━━━━━━━━━━━━━━✨");
 }
 if (_0x473167[0x0] && !isNaN(_0x473167[0x0])) {
 const _0x5dc301 = parseInt(_0x473167[0x0]);
