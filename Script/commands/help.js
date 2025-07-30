@@ -1,49 +1,3 @@
-module.exports.config = {
-    name: "help",
-    version: "1.0.2",
-    hasPermssion: 0,
-    credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
-    description: "FREE SET-UP MESSENGER",
-    commandCategory: "system",
-    usages: "[Name module]",
-    cooldowns: 5,
-    envConfig: {
-        autoUnsend: true,
-        delayUnsend: 20
-    }
-};
-
-module.exports.languages = {
- "en": {
-    "moduleInfo": "╔═══⚜️*𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐃𝐄𝐓𝐀𝐈𝐋𝐒*⚜️═══╗\n" +
-                  "║  🌟 *Name:* %1\n" +
-                  "║  📝 *Description:* %2\n" +
-                  "║  💡 *Usage:* %3\n" +
-                  "║  📁 *Category:* %4\n" +
-                  "║  ⏳ *Cooldown:* %5 seconds\n" +
-                  "║  🔑 *Permission:* %6\n" +
-                  "╚═════════════════════╝\n" +
-                  "✨ *Module by:* TâMïM ッ",
-    "helpList": 'There are %1 commands on this bot. Use: "%2help [command_name]" to know how to use!',
-    "user": "User",
-    "adminGroup": "Admin Group",
-    "adminBot": "Bot Admin"
-  }
-};
-
-module.exports.handleEvent = function ({ api, event, getText }) {
- const { commands } = global.client;
- const { threadID, messageID, body } = event;
-
- if (!body || typeof body == "undefined" || body.indexOf("help") != 0) return;
- const splitBody = body.slice(body.indexOf("help")).trim().split(/\s+/);
- if (splitBody.length == 1 || !commands.has(splitBody[1].toLowerCase())) return;
- const threadSetting = global.data.threadData.get(parseInt(threadID)) || {};
- const command = commands.get(splitBody[1].toLowerCase());
- const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : global.config.PREFIX;
- return api.sendMessage(getText("moduleInfo", command.config.name, command.config.description, `${prefix}${command.config.name} ${(command.config.usages) ? command.config.usages : ""}`, command.config.commandCategory, command.config.cooldowns, ((command.config.hasPermssion == 0) ? getText("user") : (command.config.hasPermssion == 1) ? getText("adminGroup") : getText("adminBot")), command.config.credits), threadID, messageID);
-}
-
 module.exports.run = function({ api, event, args, getText }) {
  const { commands } = global.client;
  const { threadID, messageID } = event;
@@ -69,10 +23,10 @@ module.exports.run = function({ api, event, args, getText }) {
     });
 
     return api.sendMessage(
-      `╔═══⚜️*𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓*⚜️═══╗\n` + msg +
-      `╚═══════════════════════╝\n` +
+      `╔══⚜️ *𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓* ⚜️══╗\n` + msg +
+      `╚════════════════════════╝\n` +
       `╭───────⚜️ *INFO* ⚜️───────╮\n` +
-      `│  💡 *Usage:* ${prefix}help [Name?] \n ${prefix}help [Page?]\n` +
+      `│  💡 *Usage:* ${prefix}help [Name?] or ${prefix}help [Page?]\n` +
       `│  👤 *Owner:* TâMïM ッ\n` +
       `│  📊 *Total Commands:* ${commands.size}\n` +
       `╰───────────────────────╯`,
@@ -99,8 +53,8 @@ module.exports.run = function({ api, event, args, getText }) {
 
     for (const cmds of helpView) msg += `💎 *${cmds}*\n`;
 
-    const siu = `╔═════⚜️ *𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓* ⚜️═════╗\n`;
-    const text = `╚════════════════════════╝\n` +
+    const siu = `╔══⚜️ *𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓* ⚜️══╗\n`; // Changed this line
+    const text = `╚══════════════════════╝\n` +
                  `╭───────⚜️ *INFO* ⚜️───────╮\n` +
                  `│  💡 *Usage:* ${prefix}help [Name?] or ${prefix}help [Page?]\n` +
                  `│  👤 *Owner:* TâMïM ッ\n` +
