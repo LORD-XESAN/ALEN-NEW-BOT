@@ -1,4 +1,4 @@
-/cmd install grupinfo.js const fs = require("fs-extra");
+const fs = require("fs-extra");
 const request = require("request");
 
 module.exports = {
