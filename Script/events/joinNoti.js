@@ -31,14 +31,9 @@ module.exports.run = async function({ api, event }) {
     if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
         api.changeNickname(`[ ${global.config.PREFIX} ] • ${(!global.config.BOTNAME) ? " " : global.config.BOTNAME}`, threadID, api.getCurrentUserID());
         const fs = require("fs");
-        return api.sendMessage("", event.threadID, () => api.sendMessage({body: `╭•┄┅═══❁🌺❁═══┅┄•╮\n   আসসালামু আলাইকুম-!!🖤💫\n╰•┄┅═══❁🌺❁═══┅┄•╯
-
-${global.config.PREFIX}Help\n${global.config.PREFIX} Manu
-
-𝐁𝐎𝐓 𝐍𝐀𝐌𝐄 :AI Assistant
-
-\n\n⋆✦⋆⎯⎯⎯⎯⎯⎯⎯⎯⎯⋆✦⋆
-`, attachment: fs.createReadStream(__dirname + "/cache/ullash.mp4")} ,threadID));
+        return api.sendMessage("", event.threadID, () => api.sendMessage({body: `𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗖𝗢𝗡𝗡𝗘𝗖𝗧 𝗧𝗢 𝗧𝗛𝗘 𝗚𝗥𝗢𝗨𝗣🎭🫧
+〖${global.config.PREFIX}〗𝐇𝐞𝐥𝐩\n〖${global.config.PREFIX}〗𝐌𝐞𝐧𝐮
+𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ➠𝗔𝗟𝗘𝗡🫧\n𝗢𝘄𝗻𝗲𝗿 : 𝐀𝐋𝐄𝐍 :) 3:) `, attachment: fs.createReadStream(__dirname + "/cache/ullash.mp4")} ,threadID));
     }
     else {
         try {
@@ -59,7 +54,7 @@ ${global.config.PREFIX}Help\n${global.config.PREFIX} Manu
             }
             memLength.sort((a, b) => a - b);
             
-            (typeof threadData.customJoin == "undefined") ? msg = "╭•┄┅═══❁🌺❁═══┅┄•╮\n  আসসালামু আলাইকুম-!!🖤\n╰•┄┅═══❁🌺❁═══┅┄•╯ \n  ✨🆆🅴🅻🅻 🅲🅾🅼🅴✨\n            ❥𝐍𝐄𝐖~\n     ~🇲‌🇪‌🇲‌🇧‌🇪‌🇷‌~\n   [ {name} ]\n   ༆-✿ আপনাকে আমাদের࿐\n{threadName}\n🌺✨!!—এর পক্ষ-থেকে-!!✨🌺\n❤️🫰_ভালোবাস_অভিরাম_🫰❤️\n༆-✿আপনি_এই_গ্রুপের {soThanhVien} নং মেম্বার࿐\n╭•┄┅═══❁🌺❁═══┅┄•╮\n   🌸  AI Assistant   🌸\n╰•┄┅═══❁🌺❁═══┅┄•╯" : msg = threadData.customJoin;
+            (typeof threadData.customJoin == "undefined") ? msg = "𝗢𝗶𝗶𝗶 𝗞𝗶𝗿𝗲𝗲𝗲 , কোন হালায় যেনো {name} নামের নতুন একটা মেম্বার এড করছে , এইবার তো 𝗞𝗵𝗲𝗹𝗮 𝗛𝗼𝗯𝗲𝗲𝗲, 𝗮𝘀𝗼 𝗞𝗵𝗲𝗹𝗯𝗼😹🫧" : msg = threadData.customJoin;
             msg = msg
             .replace(/\{name}/g, nameArray.join(', '))
             .replace(/\{type}/g, (memLength.length > 1) ?  'Friends' : 'Friend')
