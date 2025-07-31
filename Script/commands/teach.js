@@ -145,7 +145,7 @@ module.exports.run = async function ({ api, event, args }) {
 
         // Check if user is authorized to use teach commands
         if (!isAuthorizedTeacher(uid)) {
-            return api.sendMessage('🎮 দেখ ভাই তোকে দিয়ে teach হবে না, তুই গিয়া লুডো খেল! 🎲😂', event.threadID, event.messageID);
+            return api.sendMessage('দেখ ভাই তোর দ্বারা এসব teach হবে না, তুই গরুর ঘাস কাটতে যা ভাই 🥹😂', event.threadID, event.messageID);
         }
 
         // Show help if no arguments
@@ -258,10 +258,10 @@ module.exports.run = async function ({ api, event, args }) {
             // Update teach count for the user
             updateTeachCount(uid);
 
-            const successMsg = `𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗔𝗗𝗗𝗘𝗗 𝗧𝗘𝗔𝗖𝗛 ✅\n📌 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
-» ${comd}
+            const successMsg = `<----------------------------------------->\n𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗔𝗗𝗗𝗘𝗗✅\n<----------------------------------------->\n📌 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
+╰➤ ${comd}
 💬 𝗥𝗲𝗽𝗹𝗶𝗲𝘀:
-» ${command}
+╰➤ ${command}
 🎭 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${name || "unknown"}
 📚 𝗧𝗼𝘁𝗮𝗹 𝗧𝗲𝗮𝗰𝗵𝗶𝗻𝗴𝘀: ${re.data.teachs}
 🫧 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
@@ -282,10 +282,10 @@ module.exports.run = async function ({ api, event, args }) {
             // Update teach count for the user
             updateTeachCount(uid);
 
-            const successMsg = `𝗣𝗘𝗥𝗦𝗢𝗡𝗔𝗟 𝗧𝗘𝗔𝗖𝗛 𝗔𝗗𝗗𝗘𝗗 ✅\n📌 𝗣𝗲𝗿𝘀𝗼𝗻𝗮𝗹 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
-» ${final}
+            const successMsg = `<----------------------------------------->\n𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗔𝗗𝗗𝗘𝗗✅\n<----------------------------------------->\n📌 𝗣𝗲𝗿𝘀𝗼𝗻𝗮𝗹 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
+╰➤ ${final}
 💬 𝗥𝗲𝗽𝗹𝗶𝗲𝘀:
-» ${command}
+╰➤ ${command}
 🎭 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${await getUserName(uid, api) || "unknown"}
 📚 𝗧𝗼𝘁𝗮𝗹 𝗧𝗲𝗮𝗰𝗵𝗶𝗻𝗴𝘀: ${re.data.teachs || teachCounts[uid]}
 🫧 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
@@ -306,10 +306,10 @@ module.exports.run = async function ({ api, event, args }) {
             // Update teach count for the user
             updateTeachCount(uid);
 
-            const successMsg = `𝗥𝗘𝗔𝗖𝗧𝗜𝗢𝗡 𝗧𝗘𝗔𝗖𝗛 𝗔𝗗𝗗𝗘𝗗 ✅\n📌 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
-» ${final}
+            const successMsg = `<----------------------------------------->\n𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗔𝗗𝗗𝗘𝗗✅\n<----------------------------------------->\n📌 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
+╰➤ ${final}
 😄 𝗥𝗲𝗮𝗰𝘁𝗶𝗼𝗻𝘀:
-» ${command}
+╰➤ ${command}
 🎭 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${await getUserName(uid, api) || "unknown"}
 📚 𝗧𝗼𝘁𝗮𝗹 𝗧𝗲𝗮𝗰𝗵𝗶𝗻𝗴𝘀: ${re.data.teachs || teachCounts[uid]}
 🫧 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
