@@ -184,15 +184,15 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
    };
 
      if ((event.body.toLowerCase() == "by") || (event.body.toLowerCase() == "Bye") || (event.body.toLowerCase() == "jaiga") || (event.body.toLowerCase() == "বাই") || (event.body.toLowerCase() == "pore kotha hbe") || (event.body.toLowerCase() == "যাই গা")) {
-     return api.sendMessage("কিরে তুই কই যাস কোন মেয়ের সাথে চিপায় যাবি..!🌚🌶️🍆⛏️", threadID);
+     return api.sendMessage("কিরে তুই কই যাস কার সাথে চিপায় যাবি..!🌚🌶️🍆⛏️", threadID);
    };
 
    if ((event.body.toLowerCase() == "tumi khaiso") || (event.body.toLowerCase() == "khaicho")) {
      return api.sendMessage("না ঝাং 🥹 তুমি রান্না করে রাখো আমি এসে খাবো <😘", threadID);
    };
 
-   if ((event.body.toLowerCase() == "tumi ki amake bhalobaso") || (event.body.toLowerCase() == "tmi ki amake vlo basho")) {
-     return api.sendMessage("হুম ঝাং আমি তোমাকে রাইতে ভলোপাসি <🥵", threadID);
+   if ((event.body.toLowerCase() == "Rabu") || (event.body.toLowerCase() == "রাবু")) {
+     return api.sendMessage("এত 𝗥𝗮𝗯𝘂 𝗥𝗮𝗯𝘂 করস কেন রাবু এখন আমার বস 𝐀𝐋𝐄𝐍 :) 3:) এর সাথে বিজি আছে , তোর জমাই/বউ থাকলে তুই চুমা নাইলে তুই ঘুমা🥴 ", threadID);
    };
 
    if ((event.body.toLowerCase() == "ami ashik") || (event.body.toLowerCase() == "me ashik")) {
