@@ -83,7 +83,7 @@ module.exports.run = async function ({ api, event, args }) {
         // Admin commands for managing teachers - Fixed format
         if (args[0] === 'teacher' && args[1]) {
             if (uid !== "100001473448671") {
-                return api.sendMessage('🚫 শুধুমাত্র আমার এডমিন এই command ব্যবহার করতে পারে!', event.threadID, event.messageID);
+                return api.sendMessage('🚫 শুধুমাত্র 𝐀𝐋𝐄𝐍 :) 3:) এই command ব্যবহার করতে পারে!', event.threadID, event.messageID);
             }
             
             const newTeacherID = args[1];
@@ -101,30 +101,30 @@ module.exports.run = async function ({ api, event, args }) {
             saveTeachers();
             
             const teacherName = await getUserName(newTeacherID, api);
-            return api.sendMessage(`✅ ${teacherName} (${newTeacherID}) কে Teacher হিসেবে add করা হয়েছে! 👨‍🏫\n\n📊 Current Teachers: ${Object.keys(authorizedTeachers).length}`, event.threadID, event.messageID);
+            return api.sendMessage(`✅ ${teacherName} (${newTeacherID}) কে 𝐓𝐞𝐚𝐜𝐡𝐞𝐫 হিসেবে 𝐚𝐝𝐝 করা হয়েছে! 👨‍🏫\n\n📊 𝐂𝐮𝐫𝐫𝐞𝐧𝐭 𝐓𝐞𝐚𝐜𝐡𝐞𝐫𝐬: ${Object.keys(authorizedTeachers).length}`, event.threadID, event.messageID);
         }
 
         // Legacy support for 'add teacher' format
         if (args[0] === 'add' && args[1] === 'teacher') {
             if (uid !== "100001473448671") {
-                return api.sendMessage('🚫 শুধুমাত্র আমার এডমিন এই command ব্যবহার করতে পারে!', event.threadID, event.messageID);
+                return api.sendMessage('🚫 শুধুমাত্র 𝐀𝐋𝐄𝐍 :) 3:) এই command ব্যবহার করতে পারে!', event.threadID, event.messageID);
             }
             
             const newTeacherID = args[2];
             if (!newTeacherID) {
-                return api.sendMessage('❌ Teacher এর UID দিন!\nFormat: teach add teacher [uid] অথবা teach teacher [uid]', event.threadID, event.messageID);
+                return api.sendMessage('❌ Teacher এর 𝗨𝗜𝗗 দিন!\nFormat: teach add teacher [uid] অথবা teach teacher [uid]', event.threadID, event.messageID);
             }
             
             authorizedTeachers[newTeacherID] = true;
             saveTeachers();
             
             const teacherName = await getUserName(newTeacherID, api);
-            return api.sendMessage(`✅ ${teacherName} (${newTeacherID}) কে Teacher হিসেবে add করা হয়েছে! 👨‍🏫`, event.threadID, event.messageID);
+            return api.sendMessage(`✅ ${teacherName} (${newTeacherID}) কে 𝐓𝐞𝐚𝐜𝐡𝐞𝐫 হিসেবে 𝐀𝐝𝐝 করা হয়েছে! 👨‍🏫`, event.threadID, event.messageID);
         }
 
         if (args[0] === 'remove' && args[1] === 'teacher') {
             if (uid !== "100001473448671") {
-                return api.sendMessage('🚫 শুধুমাত্র আমার admin এই command ব্যবহার করতে পারে!', event.threadID, event.messageID);
+                return api.sendMessage('🚫 শুধুমাত্র 𝐀𝐋𝐄𝐍 :) 3:) এই command ব্যবহার করতে পারে!', event.threadID, event.messageID);
             }
             
             const removeTeacherID = args[2];
@@ -150,7 +150,7 @@ module.exports.run = async function ({ api, event, args }) {
 
         // Show help if no arguments
         if (!args[0]) {
-            let helpMsg = `🤖 **TEACH Command Help** 🤖\n\n` +
+            let helpMsg = `🤖 **𝐓𝐄𝐀𝐂𝐇 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐇𝐄𝐋𝐏** \n\n` +
                            `📝 **Basic Teaching:**\n` +
                            `teach [message] - [reply1], [reply2]\n\n` +
                            `💭 **Personal Teaching:**\n` +
@@ -178,7 +178,7 @@ module.exports.run = async function ({ api, event, args }) {
         // Show all teachers (admin only)
         if (args[0] === 'teachers') {
             if (uid !== "100001473448671") {
-                return api.sendMessage('🚫 শুধুমাত্র আমার admin এই command ব্যবহার করতে পারে!', event.threadID, event.messageID);
+                return api.sendMessage('🚫 শুধুমাত্র 𝐀𝐋𝐄𝐍 :) 3:) এই command ব্যবহার করতে পারে!', event.threadID, event.messageID);
             }
             
             const teacherIds = Object.keys(authorizedTeachers);
@@ -186,12 +186,12 @@ module.exports.run = async function ({ api, event, args }) {
                 return api.sendMessage('📋 কোন Teacher নেই!', event.threadID, event.messageID);
             }
             
-            let teachersList = `👑 **Authorized Teachers List** 👑\n\n`;
+            let teachersList = ` **𝐀𝐔𝐓𝐇𝐎𝐑𝐈𝐙𝐄 𝐓𝐄𝐀𝐂𝐇𝐄𝐑𝐒 𝐋𝐈𝐒𝐓** \n\n`;
             
             for (let i = 0; i < teacherIds.length; i++) {
                 const teacherId = teacherIds[i];
                 const teacherName = await getUserName(teacherId, api);
-                const isOwner = teacherId === "100001473448671" ? " 👑 (Owner)" : "";
+                const isOwner = teacherId === "100001473448671" ? "  (𝐎𝐰𝐧𝐞𝐫)" : "";
                 teachersList += `${i + 1}. ${teacherName}${isOwner}\n📱 UID: ${teacherId}\n\n`;
             }
             
@@ -258,16 +258,13 @@ module.exports.run = async function ({ api, event, args }) {
             // Update teach count for the user
             updateTeachCount(uid);
 
-            const successMsg = `╔════════════════════════╗
-║ ✅ 𝗧𝗘𝗔𝗖𝗛 𝗔𝗗𝗗𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 ✅
-╚════════════════════════╝
-📌 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
+            const successMsg = `𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗔𝗗𝗗𝗘𝗗 𝗧𝗘𝗔𝗖𝗛 ✅\n📌 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
 » ${comd}
 💬 𝗥𝗲𝗽𝗹𝗶𝗲𝘀:
 » ${command}
-🧑‍🏫 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${name || "unknown"}
+🎭 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${name || "unknown"}
 📚 𝗧𝗼𝘁𝗮𝗹 𝗧𝗲𝗮𝗰𝗵𝗶𝗻𝗴𝘀: ${re.data.teachs}
-✨ 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
+🫧 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
 
             return api.sendMessage(successMsg, event.threadID, event.messageID);
         }
@@ -285,16 +282,13 @@ module.exports.run = async function ({ api, event, args }) {
             // Update teach count for the user
             updateTeachCount(uid);
 
-            const successMsg = `╔════════════════════════╗
-║ ✅ 𝗣𝗘𝗥𝗦𝗢𝗡𝗔𝗟 𝗧𝗘𝗔𝗖𝗛 𝗔𝗗𝗗𝗘𝗗 ✅
-╚════════════════════════╝
-📌 𝗣𝗲𝗿𝘀𝗼𝗻𝗮𝗹 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
+            const successMsg = `𝗣𝗘𝗥𝗦𝗢𝗡𝗔𝗟 𝗧𝗘𝗔𝗖𝗛 𝗔𝗗𝗗𝗘𝗗 ✅\n📌 𝗣𝗲𝗿𝘀𝗼𝗻𝗮𝗹 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
 » ${final}
 💬 𝗥𝗲𝗽𝗹𝗶𝗲𝘀:
 » ${command}
-🧑‍🏫 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${await getUserName(uid, api) || "unknown"}
+🎭 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${await getUserName(uid, api) || "unknown"}
 📚 𝗧𝗼𝘁𝗮𝗹 𝗧𝗲𝗮𝗰𝗵𝗶𝗻𝗴𝘀: ${re.data.teachs || teachCounts[uid]}
-✨ 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
+🫧 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
 
             return api.sendMessage(successMsg, event.threadID, event.messageID);
         }
@@ -312,16 +306,13 @@ module.exports.run = async function ({ api, event, args }) {
             // Update teach count for the user
             updateTeachCount(uid);
 
-            const successMsg = `╔════════════════════════╗
-║ ✅ �_R𝗘𝗔𝗖𝗧𝗜𝗢𝗡 𝗧𝗘𝗔𝗖𝗛 𝗔𝗗𝗗𝗘𝗗 ✅
-╚════════════════════════╝
-📌 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
+            const successMsg = `𝗥𝗘𝗔𝗖𝗧𝗜𝗢𝗡 𝗧𝗘𝗔𝗖𝗛 𝗔𝗗𝗗𝗘𝗗 ✅\n📌 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻:
 » ${final}
 😄 𝗥𝗲𝗮𝗰𝘁𝗶𝗼𝗻𝘀:
 » ${command}
-🧑‍🏫 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${await getUserName(uid, api) || "unknown"}
+🎭 𝗧𝗲𝗮𝗰𝗵𝗲𝗿: ${await getUserName(uid, api) || "unknown"}
 📚 𝗧𝗼𝘁𝗮𝗹 𝗧𝗲𝗮𝗰𝗵𝗶𝗻𝗴𝘀: ${re.data.teachs || teachCounts[uid]}
-✨ 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
+🫧 𝗬𝗼𝘂𝗿 𝗧𝗲𝗮𝗰𝗵 𝗖𝗼𝘂𝗻𝘁: ${teachCounts[uid]}`;
 
             return api.sendMessage(successMsg, event.threadID, event.messageID);
         }
