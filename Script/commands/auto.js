@@ -57,9 +57,7 @@ module.exports.handleEvent = async function ({ api, event }) {
             fs.writeFileSync(path, Buffer.from(response.data, "binary"));
 
             await api.sendMessage({
-                body: ` ╔═══✨𝗜𝗺𝗮𝗴𝗲 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱✨═══╗
-                       📷 Downloaded from Imgur! 🌟
-                         ╚════💫AI Assistant💫════╝`,
+                body: `<--------------------------------------------->\n📷 𝗗𝗼𝘂𝗻𝗹𝗼𝗮𝗱𝗲𝗱 𝗜𝗠𝗚𝗨𝗥!🧘\n𝗙𝗿𝗼𝗺 ➠𝗔𝗟𝗘𝗡🫧\n<--------------------------------------------->`,
                 attachment: fs.createReadStream(path)
             }, event.threadID, () => {
                 if (fs.existsSync(path)) {
@@ -79,10 +77,7 @@ module.exports.handleEvent = async function ({ api, event }) {
         if (!bb.result) {
             api.setMessageReaction("❌", event.messageID, (err) => {}, true);
             return api.sendMessage(
-                `  ╔═══🚫𝗣𝗿𝗼𝗰𝗲𝘀𝘀𝗶𝗻𝗴 𝗙𝗮𝗶𝗹𝗲𝗱🚫═══╗
-    ⚠ Failed to fetch media data! 😔
- 🔄 Please check the URL and try again.
-     ╚════💫AI Assistant💫════╝`,
+                `⚠ Failed to fetch media data! 😔\n🔄 Please check the URL and try again.`,
                 event.threadID, event.messageID
             );
         }
@@ -102,9 +97,8 @@ module.exports.handleEvent = async function ({ api, event }) {
         fs.writeFileSync(path, Buffer.from(vid, "utf-8"));
 
         await api.sendMessage({
-            body: `╔═══✨𝗠𝗲𝗱𝗶𝗮 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱✨═══╗
-   ${cp}
-    ╚════💫AI Assistant💫════╝`,
+            body: `<--------------------------------------------->\n𝗔𝗨𝗧𝗢 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗱\n𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟✅\n
+   ${cp} 𝗙𝗿𝗼𝗺 ➠𝗔𝗟𝗘𝗡🫧\n<--------------------------------------------->`,
             attachment: fs.createReadStream(path)
         }, event.threadID, () => {
             if (fs.existsSync(path)) {
@@ -117,10 +111,7 @@ module.exports.handleEvent = async function ({ api, event }) {
     } catch (error) {
         api.setMessageReaction("❌", event.messageID, (err) => {}, true);
         await api.sendMessage(
-            `╔════🚫𝗘𝗿𝗿𝗼𝗿 𝗢𝗰𝗰𝘂𝗿𝗿𝗲𝗱🚫════╗
-    ❌ Something went wrong! 😔
-     🔄 Please try again later!
-       ╚════💫AI Assistant💫════╝`,
+            `❌ Something went wrong! \n🔄 Please try again later!`,
             event.threadID, event.messageID
         );
     }
@@ -129,18 +120,13 @@ module.exports.handleEvent = async function ({ api, event }) {
 module.exports.run = async function ({ api, event }) {
     try {
         return api.sendMessage(
-            `╔════✨𝗔𝘂𝘁𝗼𝗗𝗟 𝗖𝗼𝗺𝗺𝗮𝗻𝗱✨════╗
-                   📋 Usage: Reply with a valid video/image URL (Facebook, TikTok, Instagram, YouTube, Pinterest, Imgur)
-                   ╚════💫AI Assistant💫════╝`,
+            `📋 Usage: Reply with a valid video/image URL (Facebook, TikTok, Instagram, YouTube, Pinterest, Imgur)`,
             event.threadID, event.messageID
         );
     } catch (error) {
         return api.sendMessage(
-            `╔═══════🚫 𝗘𝗿�_r𝗢𝗰𝗰𝘂𝗿𝗿𝗲𝗱 🚫═══════╗
-                   ❌ Something went wrong! 😔
-                   📝 Error: ${error.message}
-                   🔄 Please try again later!
-                   ╚═══════💫 Crafted by Tohidul 💫═══════╝`,
+            `❌ Something went wrong! 😞 \n📝 Error: ${error.message}
+\n🔄 Please try again later.`,
             event.threadID, event.messageID
         );
     }
