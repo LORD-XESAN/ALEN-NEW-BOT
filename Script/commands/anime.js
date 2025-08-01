@@ -56,6 +56,6 @@ var link = [
 "https://i.imgur.com/TAsKjQs.mp4",
 "https://i.imgur.com/tmIUDPB.mp4",
 ];
-var callback = () => api.sendMessage({body:`╭──────•◈•───────╮\n\nㅤ DOREMON VIDEO 📷 \n     𝗠𝗔𝗗𝗘 𝗕𝗬: 𝐂𝐘𝐁𝐄𝐑 𝐁𝐎𝐓 𝐂𝐎𝐌𝐌𝐔𝐍𝐈𝐓𝐘   \n╰──────•◈•───────╯`,attachment: fs.createReadStream(__dirname + "/cache/1.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.mp4"));
+var callback = () => api.sendMessage({body:`<----------------------------------------->\nㅤ 𝗗𝗢𝗥𝗘𝗠𝗢𝗡 𝗩𝗘𝗗𝗜𝗢📷 \n     𝗠𝗔𝗗𝗘 𝗕𝗬: ➠𝗔𝗟𝗘𝗡🫧   \n<----------------------------------------->`,attachment: fs.createReadStream(__dirname + "/cache/1.mp4")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.mp4"));
 return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/1.mp4")).on("close",() => callback());
 };9
