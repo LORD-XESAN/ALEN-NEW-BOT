@@ -184,7 +184,7 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
 			var nametag = (await api.getUserInfo(id))[id].name;
 			arraytag.push({id: id, tag: nametag});
 			
-			if(!reason) reason += "No reason was given";
+			if(!reason) reason += "𝗢𝗳𝗳𝗹𝗶𝗻𝗲💔";
 			/*if(!bans.warns.hasOwnProperty(threadID)) {
 			bans.warns[threadID] = {}; 
 			}*/
@@ -209,7 +209,7 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
 		
 		}//for
 
-		api.sendMessage({body: `Banned members ${arrayname.join(", ")} permanently leave the group for the reason: ${reason}`, mentions: arraytag}, threadID, messageID);
+		api.sendMessage({body: `দেখবি সবাই , গ্রুপ থাকবে কিন্তু ${arrayname.join(", ")} থাকবে না 🙂👌\n<----------------------------------------->\nকিক দেওয়ার কারন সে: ${reason} \n𝐏𝐨𝐰𝐞𝐫 𝐎𝐟 ➠𝗔𝗟𝗘𝗡🫧\n<----------------------------------------->`, mentions: arraytag}, threadID, messageID);
 		fs.writeFileSync(__dirname + `/cache/bans.json`, JSON.stringify(bans, null, 2));
 }
   
