@@ -17,22 +17,22 @@ module.exports.config = {
 module.exports.handleEvent = async ({ api, event, Threads,Users}) => {
 var id = event.senderID;
  var name = await Users.getNameUser(event.senderID);
- if (event.body.indexOf("ULLASH")==0 || (event.body.indexOf("ullash bau")==0) || event.body.indexOf("উল্লাস ভাই")==0 ||
-event.body.indexOf("Ullash bai")==0 ||
-event.body.indexOf("ullash dadu")==0 ||
-event.body.indexOf("উল্লাস")==0 ||
-event.body.indexOf("ullash")==0 ||
-event.body.indexOf("ulash")==0 ||
-event.body.indexOf("ullas")==0 ||
-event.body.indexOf("ullah")==0) {
+ if (event.body.indexOf("ALEN")==0 || (event.body.indexOf("Alen")==0) || event.body.indexOf("alen")==0 ||
+event.body.indexOf("Jisan")==0 ||
+event.body.indexOf("jisan")==0 ||
+event.body.indexOf("jesan")==0 ||
+event.body.indexOf("Jesan")==0 ||
+event.body.indexOf("JESAN")==0 ||
+event.body.indexOf("জিসান")==0 ||
+event.body.indexOf("zisan")==0) {
  const axios = global.nodemodule["axios"];
 const request = global.nodemodule["request"];
 const fs = global.nodemodule["fs-extra"];
  var link = [
-"https://i.imgur.com/fGY8plC.mp4",
-"https://i.imgur.com/fGY8plC.mp4",
+"https://i.imgur.com/eVPLO2i.mp4",
+"https://i.imgur.com/eVPLO2i.mp4",
  ];
- var callback = () => api.sendMessage({body:`╭•┄┅════❁🌺❁════┅┄•╮\n প্রিয় মানুষ ডুবে থাকুক,,,\nহৃদওপিন্ডের বিশাল গভিরতায়,,!🌸 \n╰•┄┅════❁🌺❁════┅┄•╯\n\n ${name} উল্লাস এর ইনবক্স :- m.me/100086680386976 \n⋆✦⋆⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⋆✦⋆`,attachment: fs.createReadStream(__dirname + "/cache/emon.jpeg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/emon.jpeg"), event.messageID);
+ var callback = () => api.sendMessage({body:`~ তোমার ক্ষুদ্রতম যত্ন আমার পাহাড় সমান দুঃখ কেও সুখে পরিনত করে!🖤🌸😊\n\n ${name} ➠𝗔𝗟𝗘𝗡🫧 বস এর ইনবক্স :- https://m.me/ALEN.OKH`,attachment: fs.createReadStream(__dirname + "/cache/emon.jpeg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/emon.jpeg"), event.messageID);
  const timeStart = Date.now();
  const dcm = process.uptime(); 
  var anh = Math.floor(dcm / (60 * 60));
