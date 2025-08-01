@@ -43,7 +43,7 @@ if (urlYtb) {
       return api.sendMessage("❌ An error occurred:"+err.message,event.threadID,event.messageID);
     }
     if (result.length == 0)
-      return api.sendMessage("⭕ No search results match the keyword:"+ keyWord,event.threadID,event.messageID);
+      return api.sendMessage("পাগল ছাগল, কি গান শুনতে চাস সেটার নাম তো লিখবি কমান্ড দেওয়ার পর😾⚡"+ keyWord,event.threadID,event.messageID);
     let msg = "";
     let i = 1;
     const thumbnails = [];
@@ -73,7 +73,7 @@ global.client.handleReply.push({
   const { data: { title, downloadLink ,quality} } = await axios.get(`${await baseApiUrl()}/ytDl3?link=${idvideo}&format=mp3`);
     await api.unsendMessage(handleReply.messageID)
         await  api.sendMessage({
-          body: `• Title: ${title}\n• Quality: ${quality}`,
+          body: `𝗕𝗯𝘆 𝗧𝗵𝗶𝘀 𝗦𝗼𝗻𝗴 𝗜𝘀 𝗙𝗼𝗿 𝗬𝗼𝘂 𝗙𝗿𝗼𝗺 ➠𝗔𝗟𝗘𝗡🫧• Title: ${title}\n• Quality: ${quality}`,
           attachment: await dipto(downloadLink,'audio.mp3')
         },event.threadID ,
        ()=>fs.unlinkSync('audio.mp3')
