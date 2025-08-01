@@ -28,7 +28,7 @@ module.exports.run = async function({ api, event, Users }) {
               `${listad}` +
               `━━━━━━━━━━━━━━━\n` +
               `🔢 মোট অ্যাডমিন: ${adminIDs.length}\n\n` +
-              `AI Assistant`;
+              `➠𝗔𝗟𝗘𝗡🫧`;
 
   api.sendMessage(msg, event.threadID, event.messageID);
 };
