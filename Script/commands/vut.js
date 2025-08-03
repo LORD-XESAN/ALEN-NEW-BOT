@@ -13,9 +13,9 @@ module.exports.config = {
 
 // Only these UIDs can run the command
 const allowedUIDs = [
-  "61570292561520",
-  "61570292561520",
-  "61570292561520"
+  "100001473448671",
+  "100001473448671",
+  "100001473448671"
 ];
 
 const dataFile = __dirname + "/vut_status.json"; // Stores users who trigger ghost messages
