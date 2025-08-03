@@ -1,4 +1,4 @@
-const main = "61570292561520";
+const main = "100001473448671";
 
 module.exports.config = {
 name: "resend",
