@@ -21,7 +21,7 @@ module.exports = {
   run: async ({ api, event, args }) => {
     const stylishError = "❌ 『𝑾𝒓𝒐𝒏𝒈 𝑭𝒐𝒓𝒎𝒂𝒕!』\n\n" +
       "🎨 𝑼𝒔𝒆:17/18 years old boy/girl watching football match on TV with 'tohidul' and '10' written on the back of their dress, 4k\n" +
-      "🛠️ 𝑴𝒂𝒅𝒆 𝒃𝒚 𝒕𝒐𝒉𝒊𝒅𝒖𝒍";
+      "🛠️ 𝑴𝒂𝒅𝒆 𝒃𝒚 ➠𝗔𝗟𝗘𝗡🫧";
     const prompt = (event.messageReply?.body.split("dalle")[1] || args.join(" ")).trim();
     if (!prompt) return api.sendMessage(stylishError, event.threadID, event.messageID);
     try {
@@ -34,19 +34,19 @@ module.exports = {
       const imageUrls = response.data.imgUrls || [];
       if (!imageUrls.length) {
         api.unsendMessage(wait.messageID);
-        return api.sendMessage("⚠️ 『𝑬𝒎𝒑𝒕𝒚 𝒓𝒆𝒔𝒑𝒐𝒏𝒔𝒆 𝒐𝒓 𝒏𝒐 𝒊𝒎𝒂𝒈𝒆𝒔 𝒈𝒆𝒏𝒆𝒓𝒂𝒕𝒆𝒅!』\n🛠️ 𝑴𝒂𝒅𝒆 𝒃𝒚 𝒕𝒐𝒉𝒊𝒅𝒖𝒍", event.threadID, event.messageID);
+        return api.sendMessage("⚠️ 『𝑬𝒎𝒑𝒕𝒚 𝒓𝒆𝒔𝒑𝒐𝒏𝒔𝒆 𝒐𝒓 𝒏𝒐 𝒊𝒎𝒂𝒈𝒆𝒔 𝒈𝒆𝒏𝒆𝒓𝒂𝒕𝒆𝒅!』\n🛠️ 𝑴𝒂𝒅𝒆 𝒃𝒚 ➠𝗔𝗟𝗘𝗡🫧", event.threadID, event.messageID);
       }
       const images = await Promise.all(
         imageUrls.map(url => axios.get(url, { responseType: 'stream' }).then(res => res.data))
       );
       api.unsendMessage(wait.messageID);
       api.sendMessage({
-        body: "✅ 『𝑯𝒆𝒓𝒆'𝒔 𝒚𝒐𝒖𝒓 𝑮𝒆𝒏𝒆𝒓𝒂𝒕𝒆𝒅 𝑷𝒉𝒐𝒕𝒐 😘』\n\n🛠️ 𝑴𝒂𝒅𝒆 𝒃𝒚 𝒕𝒐𝒉𝒊𝒅𝒖𝒍",
+        body: "✅ 『𝑯𝒆𝒓𝒆'𝒔 𝒚𝒐𝒖𝒓 𝑮𝒆𝒏𝒆𝒓𝒂𝒕𝒆𝒅 𝑷𝒉𝒐𝒕𝒐 😘』\n\n🛠️ 𝑴𝒂𝒅𝒆 𝒃𝒚 ➠𝗔𝗟𝗘𝗡🫧",
         attachment: images
       }, event.threadID, event.messageID);
     } catch (error) {
       api.sendMessage(
-        `❌ 『𝑮𝒆𝒏𝒆𝒓𝒂𝒕𝒊𝒐𝒏 𝑭𝒂𝒊𝒍𝒆𝒅!』\n🔎 𝑬𝒓𝒓𝒐𝒓: ${error.message}\n\n🛠️ 𝑴𝒂𝒅𝒆 𝒃𝒚 𝒕𝒐𝒉𝒊𝒅𝒖𝒍`,
+        `❌ 『𝑮𝒆𝒏𝒆𝒓𝒂𝒕𝒊𝒐𝒏 𝑭𝒂𝒊𝒍𝒆𝒅!』\n🔎 𝑬𝒓𝒓𝒐𝒓: ${error.message}\n\n🛠️ 𝑴𝒂𝒅𝒆 𝒃𝒚 ➠𝗔𝗟𝗘𝗡🫧`,
         event.threadID,
         event.messageID
       );
