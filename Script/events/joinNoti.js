@@ -44,7 +44,11 @@ module.exports.run = async function({ api, event }) {
             const path = join(__dirname, "cache", "joinvideo");
             const pathGif = join(path, `${threadID}.video`);
  
-            var mentions = [], nameArray = [], memLength = [], i = 0;
+            var mentions =  [];
+    mentions.push({
+      tag: name,
+      id: event.senderID
+    })
             
             for (id in event.logMessageData.addedParticipants) {
                 const userName = event.logMessageData.addedParticipants[id].fullName;
