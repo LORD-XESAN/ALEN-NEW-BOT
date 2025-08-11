@@ -44,10 +44,7 @@ module.exports.run = async function({ api, event }) {
             const path = join(__dirname, "cache", "joinvideo");
             const pathGif = join(path, `${threadID}.video`);
  
-            var mentions =  [];
-    mentions.push({
-      tag: name,
-      })
+            var mentions = [], nameArray = [], memLength = [], i = 0;
             
             for (id in event.logMessageData.addedParticipants) {
                 const userName = event.logMessageData.addedParticipants[id].fullName;
@@ -57,7 +54,7 @@ module.exports.run = async function({ api, event }) {
             }
             memLength.sort((a, b) => a - b);
             
-            (typeof threadData.customJoin == "undefined") ? msg = "𝗢𝗶𝗶𝗶 𝗞𝗶𝗿𝗲𝗲𝗲 , কোন বলদে যেনো\n {name} নামের নতুন একটা মেম্বার এড করছে, এইবার তো 𝗞𝗵𝗲𝗹𝗮 𝗛𝗼𝗯𝗲𝗲𝗲, 𝗮𝘀𝗼 𝗞𝗵𝗲𝗹𝗯𝗼😹🫧" : msg = threadData.customJoin;
+            (typeof threadData.customJoin == "undefined") ? msg = "𝗢𝗶𝗶𝗶 𝗞𝗶𝗿𝗲𝗲𝗲 , কোন হালায় যেনো\n {name} নামের নতুন মেম্বার এড করছে, এইবার তো 𝗞𝗵𝗲𝗹𝗮 𝗛𝗼𝗯𝗲𝗲𝗲, 𝗮𝘀𝗼 𝗞𝗵𝗲𝗹𝗯𝗼😹🫧" : msg = threadData.customJoin;
             msg = msg
             .replace(/\{name}/g, nameArray.join(', '))
             .replace(/\{type}/g, (memLength.length > 1) ?  'Friends' : 'Friend')
