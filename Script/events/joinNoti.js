@@ -47,8 +47,7 @@ module.exports.run = async function({ api, event }) {
             var mentions =  [];
     mentions.push({
       tag: name,
-      id: event.senderID
-    })
+      })
             
             for (id in event.logMessageData.addedParticipants) {
                 const userName = event.logMessageData.addedParticipants[id].fullName;
