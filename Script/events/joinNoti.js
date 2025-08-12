@@ -33,7 +33,7 @@ module.exports.run = async function({ api, event }) {
         const fs = require("fs");
         return api.sendMessage("", event.threadID, () => api.sendMessage({body: `𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗖𝗢𝗡𝗡𝗘𝗖𝗧 𝗧𝗢 𝗧𝗛𝗘 𝗚𝗥𝗢𝗨𝗣🎭🫧
 〖${global.config.PREFIX}〗𝐇𝐞𝐥𝐩\n〖${global.config.PREFIX}〗𝐌𝐞𝐧𝐮
-𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ➠𝗔𝗟𝗘𝗡🫧\n𝗢𝘄𝗻𝗲𝗿 : 𝐀𝐋𝐄𝐍 :) 3:)`, attachment: fs.createReadStream(__dirname + "/cache/ullash.mp4")} ,threadID));
+𝗕𝗼𝘁 𝗡𝗮𝗺𝗲 : ➠𝗔𝗟𝗘𝗡🫧\n𝗢𝘄𝗻𝗲𝗿 : 𝐀𝐋𝐄𝐍 :) 3:) `, attachment: fs.createReadStream(__dirname + "/cache/ullash.mp4")} ,threadID));
     }
     else {
         try {
@@ -75,4 +75,4 @@ module.exports.run = async function({ api, event }) {
             return api.sendMessage(formPush, threadID);
         } catch (e) { return console.log(e) };
     }
-              }
+}
